@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 import Button from "../button_cus/button_cus";
 import xero_logo from './xero_logo.png';
-import devcomm from './devcomm_logo.png';
+import devcomm from './devcomm.png';
 
 const Header = () => {
     return (
-        <div className="text-white text-right p-4 flex justify-end w-full font-cus2 bg-gray-950">
+        <div className="text-white text-right p-4 flex justify-end w-full font-cus2">
                 <div className="flex-1 flex justify-start text-[20px] items-center">
                     <Link to="/" className="flex items-center">
-                        <img className="ml-10 w-[70px] mr-2"src={xero_logo} />
-                        X 
-                        <img className="w-[40px] h-auto ml-4"src={devcomm}/>
+                        <img className="ml-10 w-[70px]"src={xero_logo} />
+                        <span>X</span> 
+                        <img className="h-[60px] ml-2"src={devcomm}/>
                     </Link>
                 </div>
                 <div className="mx-8 flex items-center">

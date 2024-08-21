@@ -13,7 +13,7 @@ const Createteam = () => {
             <div className="bg-black h-screen w-screen flex flex-col">
             <Header />
             <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto w-fit h-full">
-                <div className="text-[70px] font-cus2 text-green-400"> XEROCRYPT </div>
+                <div className="text-[70px] font-cus2 text-green-400"> Create your Team </div>
                 <div>
                     <div className="text-[30px] font-cus2 text-zinc-400 mb-2"> Your Team Id : team_id </div>
                     <div className="text-[20px] text-white w-full font-cus2 mt-2">
@@ -25,7 +25,7 @@ const Createteam = () => {
                     Your Teammates are required to enter the same team_id as yours.
                 </div>
                 <div className="flex justify-evenly w-[40%] font-cus2">
-                    <Button className="mx-10" text_size="20px" text="Create Team" width="w-[150px]" border_width="1px"/>
+                    <Button className="mx-10" text_size="text-[20px]" text="Create Team" width="w-[150px]" border_width="p-[1px]"/>
                 </div>
             </div>
             </div>
