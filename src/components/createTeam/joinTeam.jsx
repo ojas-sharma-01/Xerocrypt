@@ -17,7 +17,7 @@ const Jointeam = () => {
                     <div className="text-[50px] text-white w-full font-cus2">Create/Join Your Team.</div>
                     <div className="flex justify-center w-[40%]">
                     <Button className="mx-10" text_size="text-[20px]" text="Join/Change" 
-                    width="w-[100px]" height="100px" border_width="p-[1px]"/>
+                    width="w-[140px]" height="100px" border_width="p-[1px]"/>
                     </div>
                 </div>
             </div>
