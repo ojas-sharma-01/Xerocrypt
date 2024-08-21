@@ -33,12 +33,12 @@ const Team = () => {
                     { Timer }
                 </div>
                 <div className="text-[50px] text-white w-full font-cus2">Create/Join Your Team.</div>
-                <div className="flex justify-evenly w-[40%] font-cus2">
+                <div className="mt-4 flex justify-evenly w-[100%] font-cus2">
                     <Link to="/create_team">
-                        <Button className="mx-10" text_size="20px" text="Create" width="w-[100px]" height="100px" border_width="1px"/>
+                        <Button className="mx-10" text_size="text-[40px]" text="CREATE" width="w-[170px]" height="100px" border_width="p-[1px]"/>
                     </Link>
                     <Link to="/join_team">
-                        <Button className="mx-10" text_size="20px" text="Join" width="w-[100px]" height="100%" border_width="1px"/>
+                        <Button className="mx-10" text_size="text-[40px]" text="JOIN" width="w-[150px]" height="100%" border_width="p-[1px]"/>
                     </Link>
                 </div>
             </div>

@@ -31,7 +31,7 @@ const Leaderb = () => {
         <div className="bg-black text-white h-screen font-[Roboto] flex flex-col items-center w-screen">
             <Header />
             <div className=' bg-black w-[80%]'>
-                <div className="m-16 text-[60px] font-cus2"> Leaderboard </div>
+                <div className="m-12 text-[60px] font-cus2"> Leaderboard </div>
                 <div className='flex-col items-center m-[40px] mx-0 border-white border-2'>
                     <div className='flex m-[30px] border-b-2 border-white mb-16 h-[80%]'>
                         <div className='flex-[0.2] flex justify-center text-[20px]'>Posn</div>

@@ -21,7 +21,7 @@ const Login = () => {
                     </div>
                 </div>
                 <div className="m-8 text-[20px]">
-                    <Button text="Login" border_width = "1px" height="h-[50px]" width="w-[100px]"/>
+                    <Button text="Login" border_width = "p-[1px]" height="h-[50px]" width="w-[100px]"/>
                 </div>
                 <div className="text-[20px] font-cus2">Click 
                     <Link to="/register" className="hover:bg-gray-900 text-green-300"> here</Link> to create an account.
