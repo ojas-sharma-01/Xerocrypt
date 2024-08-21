@@ -5,7 +5,7 @@ import devcomm from './devcomm_logo.png';
 
 const Header = () => {
     return (
-        <div className="text-white text-right p-4 flex justify-end w-full font-cus2 bg-gray-900">
+        <div className="text-white text-right p-4 flex justify-end w-full font-cus2 bg-gray-950">
                 <div className="flex-1 flex justify-start text-[20px] items-center">
                     <Link to="/" className="flex items-center">
                         <img className="ml-10 w-[70px] mr-2"src={xero_logo} />
