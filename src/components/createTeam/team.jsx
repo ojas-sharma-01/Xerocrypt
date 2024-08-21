@@ -7,6 +7,24 @@ import Header from "../header/header";
 
 const date = DateTime.now().setZone('Asia/Kolkata');
 const time_now = parseInt("" + date.day + date.hour + date.minute + date.second);
+const guidelines = [{
+                    guideline: "Lorem ipsum dolor sit, amet consectetur \
+                    adipisicing elit. Eum reiciendis veniam, eligendi blanditiis \
+                    porro similique voluptas a inventore ab repudiandae laudantium \
+                    eius enim, quia nam quas assumenda consectetur cupiditate pariatur?"
+                },
+                {
+                    guideline: "Lorem ipsum dolor sit, amet consectetur \
+                    adipisicing elit. Eum reiciendis veniam, eligendi blanditiis \
+                    porro similique voluptas a inventore ab repudiandae laudantium \
+                    eius enim, quia nam quas assumenda consectetur cupiditate pariatur?"
+                },
+                {
+                    guideline: "Lorem ipsum dolor sit, amet consectetur \
+                    adipisicing elit. Eum reiciendis veniam, eligendi blanditiis \
+                    porro similique voluptas a inventore ab repudiandae laudantium \
+                    eius enim, quia nam quas assumenda consectetur cupiditate pariatur?"
+                }];
 
 const Team = () => {
     const [Timer, setimer] = useState(time_now);
@@ -42,6 +60,17 @@ const Team = () => {
                         <div className="absolute w-fit top-0 right-0 m-2 text-[40px] mr-4
                          hover:bg-slate-500"> 
                             <button className="px-4" onClick={() => {setmodal(!modal)}}> X </button>
+                        </div>
+                        <div className="m-10 text-[50px] font-cus2 border-b-2 border-white"> Guidelines </div>
+                        <div className="m-auto w-[90%] h-[70%] flex flex-col justify-evenly">
+                        {guidelines.map((ele, index) => {
+                            return (
+                                <div className="flex justify-evenly w-full">
+                                    <div className="flex-[0.15]">{index+1}</div>
+                                    <div className="flex-[0.85]">{ele.guideline}</div>
+                                </div>
+                            )
+                        })}
                         </div>
                     </div>
             </div>}
