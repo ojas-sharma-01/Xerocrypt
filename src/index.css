@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(cyber_f.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Cyber';
+    src: url(cyber.otf) format('opentype');
+}
+  
