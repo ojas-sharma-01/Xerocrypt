@@ -85,7 +85,7 @@ const Createteam = () => {
          >
             <div className="bg-black h-screen w-screen flex flex-col">
             <Header />
-            <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto w-fit h-full">
+            {user ? <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto w-fit h-full">
                 {(team === null) ? 
                 (<><div className="text-[40px] md:text-[70px] font-cus2 text-green-400"> Create your Team. </div>
                 <div>
@@ -114,7 +114,7 @@ const Createteam = () => {
                     </div>to leave your current team and create a new one</div>
                 <div className="text-[20px]">Click <Link to="/join_team" className="text-green-500"> here </Link> to change your team.</div>
                 </>)}
-            </div>
+            </div> : <div className="text-white text-[30px] my-auto">You are not logged in.</div>}
             </div>
         </motion.div>
     );

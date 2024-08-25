@@ -71,7 +71,7 @@ const Jointeam = () => {
          >
             <div className="bg-black h-screen flex flex-col w-screen">
                 <Header />
-                <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto h-full">
+                {user ? <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto h-full">
                     <div className="text-[40px] md:text-[70px] font-cus2 text-green-400">Join a Team.</div>
                     <div className="text-[30px] flex flex-col text-white w-full font-cus2">
                         <div className="mb-2">Enter the ID of the team you want to join.</div>
@@ -88,6 +88,7 @@ const Jointeam = () => {
                     width="w-[240px]" height="100px" border_width="p-[1px]"/>
                     </div>
                 </div>
+                : <div className="text-[30px] text-white my-auto">You are not logged in.</div>}
             </div>
         </motion.div>
     );

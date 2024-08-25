@@ -11,7 +11,7 @@ const Header = () => {
     const [ham, setham] = useState(false);
     return (
         <>
-        <div className="md:hidden flex w-[100%]">
+        <div className="md:hidden flex w-[100%] text-white">
             <div className="flex-1 flex justify-start text-[20px] items-center">
                         <Link to="/" className="flex items-center mt-2 ml-2">
                             <img className="w-[40px]"src={xero_logo} alt="xero_logo"/>
@@ -28,7 +28,7 @@ const Header = () => {
             // animate={{ x: '0', width: '70%' }}    // Slide in to 70% width
             // transition={{ duration: 0.5, ease: 'easeOut' }}
             // >
-            <div className="flex flex-col fixed z-10 h-[100%] items-center right-0 bg-gray-500 p-4">
+            <div className="flex flex-col fixed z-10 h-[100%] items-center right-0 bg-gray-500 p-4 text-white">
                 <div className="flex justify-end text-[35px] w-[100%] mb-4" onClick={() => setham(!ham)}><div> X </div></div>
                 <div className="m-4"><Link to="/your_team" > <Button text_size="text-[20px]" text="Team" border_width="p-[1px]" width="w-[120px]"/>
                 </Link></div>
