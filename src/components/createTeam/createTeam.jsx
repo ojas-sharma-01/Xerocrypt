@@ -16,7 +16,7 @@ const Createteam = () => {
     const [cap, setcap] = useState('');
     const [tname, settname] = useState('');
     const handle_cap = async () => {
-        const ret = await fetch('http://localhost:5000/get_captcha');
+        const ret = await fetch('https://xerocrypt.vercel.app/get_captcha');
         const data = await ret.json();
         if (data.type != 'error') {
             setcap(data.message);

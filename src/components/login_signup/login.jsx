@@ -41,6 +41,10 @@ const Login = () => {
                     Logged In \
                     </p>'
                 );
+
+                setTimeout(() => {
+                    Nav("/");
+                }, 1500);
             } 
             else {
                 setres('\

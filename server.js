@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const bcrypt = require('bcrypt');
 
 var captchas = [
     "52305",
@@ -2029,6 +2030,18 @@ app.get('/get_captcha', async(req, res) => {
         });
     }
 });
+
+app.post('/check_ans', (req, res) => {
+    try {
+        const q_no = req.body.q_no;
+        const ans = req.body.ans;
+
+        
+    }
+    catch (e) {
+
+    }
+})
 
 app.listen(5000, () => {
     console.log(`On ${5000}`);
