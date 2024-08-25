@@ -59,7 +59,7 @@ const Team = () => {
                   className="overflow-hidden text-white fixed top-[30%] left-[-1rem]"
                   onClick={() => {setmodal(!modal)}} 
                >
-                  <Button text="i" width="w-[100%]" height="h-[100%]" text_size="text-[40px]" border_width="p-[1px]" />
+                  <Button text="i" width="w-[80%] md:w-[100%]" height="h-[100%]" text_size="text-[20px] md:text-[40px]" border_width="p-[1px]" />
             </motion.div>
             {modal && <div className="fixed inset-0 z-[1] flex justify-center items-center">
                     <div className="absolute top-[10%] left-[10%] h-[80%] w-[80%] bg-slate-900 bg-opacity-95 flex flex-col items-center">
@@ -81,7 +81,7 @@ const Team = () => {
                         </div>
                     </div>
             </div>}
-            <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto bg-black w-full">
+            <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto bg-black w-full h-full">
                 <div className="text-[40px] md:text-[100px] lg:text-[150px] font-cus2 text-green-400">XERO.CRYPT</div>
                 <div className="text-[30px] md:text-[70px] font-cus2 text-green-400">
                     { Timer }

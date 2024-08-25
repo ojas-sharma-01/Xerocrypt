@@ -69,7 +69,7 @@ const Login = () => {
     return (
         <div className="bg-black max-w-[100%] justify-center items-center w-screen flex flex-col text-white overflow-x-hidden">
             <Header />
-            <div className="bg-black flex flex-col items-center">
+            <div className="bg-black flex h-screen flex-col items-center">
                 <div className="my-20 font-cus2 text-[50px]">Login</div>
                 <div className="flex flex-col justify-center items-center h-[30%] text-[20px]">
                     <div className="my-2">
