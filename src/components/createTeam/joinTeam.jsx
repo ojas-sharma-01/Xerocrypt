@@ -15,6 +15,13 @@ const Jointeam = () => {
     const {team, changeTeam, change_team_name} = useContext(teamContext);
     const handle_teamchange = async () => {
         try {
+            const q = query(collection(db, 'Teams'), where('Teamid', '==', team_id))
+            const curr_team = await getDocs(q);
+            
+            if (curr_team.empty) {
+                setres(`<p style="color:red;">No team exists with given code.</p>`)
+                return;
+            }
             if (team != null) {
                 const get_all_teams = collection(db, 'Teams');
                 const q = query(collection(db, 'Teams'), where('Teamid', '==', team))
@@ -57,6 +64,7 @@ const Jointeam = () => {
             setres(`<p style="color:green;">Joined team with code ${team_id}</p>`)
         }
         catch (e) {
+            console.log(e);
             setres(`<p style="color:red;">Some error occured. Try again</p>`)
         }
     };
@@ -87,6 +95,7 @@ const Jointeam = () => {
                     <Button className="mx-10" text_size="text-[20px] md:text-[30px]" text="Join/Change" 
                     width="w-[240px]" height="100px" border_width="p-[1px]"/>
                     </div>
+                    <div className="text-[25px]" dangerouslySetInnerHTML={{ __html: res }}></div>
                 </div>
                 : <div className="text-[30px] text-white my-auto">You are not logged in.</div>}
             </div>

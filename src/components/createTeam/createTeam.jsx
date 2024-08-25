@@ -16,7 +16,7 @@ const Createteam = () => {
     const [cap, setcap] = useState('');
     const [tname, settname] = useState('');
     const handle_cap = async () => {
-        const ret = await fetch('https://xerocrypt.vercel.app/get_captcha');
+        const ret = await fetch('https://xero-back.vercel.app/get_captcha');
         const data = await ret.json();
         if (data.type != 'error') {
             setcap(data.message);
@@ -63,7 +63,7 @@ const Createteam = () => {
 
             changeTeam(null);
             change_team_name(null);
-            setres(`<p style="color:green;">New Team Created</p>`)
+            setres(`<p style="color:green;"></p>`)
         }
         catch (e) {
             setres(`<p style="color:red;">Some error occured Try again.</p>`)
@@ -113,6 +113,7 @@ const Createteam = () => {
                 onClick={handle_create_new_team}>&nbsp;here&nbsp;
                     </div>to leave your current team and create a new one</div>
                 <div className="text-[20px]">Click <Link to="/join_team" className="text-green-500"> here </Link> to change your team.</div>
+                <div className="text-[25px]" dangerouslySetInnerHTML={{__html: res}}></div>
                 </>)}
             </div> : <div className="text-white text-[30px] my-auto">You are not logged in.</div>}
             </div>
