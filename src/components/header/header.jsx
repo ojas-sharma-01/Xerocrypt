@@ -11,7 +11,7 @@ const Header = () => {
     const [ham, setham] = useState(false);
     return (
         <>
-        <div className="flex w-[100%]">
+        <div className="md:hidden flex w-[100%]">
             <div className="flex-1 flex justify-start text-[20px] items-center">
                         <Link to="/" className="flex items-center mt-2 ml-2">
                             <img className="w-[40px]"src={xero_logo} alt="xero_logo"/>

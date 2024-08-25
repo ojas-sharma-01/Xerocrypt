@@ -52,7 +52,7 @@ const Signup = () => {
     return (
         <div className="bg-black max-w-[100%] justify-center items-center w-screen flex flex-col text-white overflow-x-hidden">
             <Header />
-            <div className="h-full h-screen flex flex-col items-center">
+            <div className="h-screen flex flex-col items-center">
                 <div className="my-20 font-cus2 text-[50px]">Signup</div>
                 <div className="flex flex-col justify-evenly items-center h-[30%] text-[20px]">
                     <div>
