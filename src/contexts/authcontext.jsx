@@ -13,7 +13,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const ret = await fetch("http://localhost:3001/api/auth/check", {
+                const ret = await fetch("https://xero-back.vercel.app/api/auth/check", {
                     credentials: 'include',
                 });
                 const response = await ret.json();
