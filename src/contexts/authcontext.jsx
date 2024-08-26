@@ -40,14 +40,14 @@ const AuthProvider = ({ children }) => {
     
     const login = (use) => {
         setuser(use);
-        document.cookie = `token=${use.uid}; path=/; max-age=${60 * 60 * 24 * 7}`;
+        document.cookie = `token=${use.uid}; Secure; path=/; max-age=${60 * 60 * 24 * 7}`;
         console.log(document.cookie);
     }
 
     const logout = () => {
         setuname(null);
         setuser(null);
-        document.cookie = "token=; path=/; max-age=0";
+        document.cookie = "token=; path=/; Secure; max-age=0";
         changeTeam(null);
         change_team_name(null);
     }
