@@ -49,7 +49,7 @@ const Ques_temp = () => {
         catch (e) {
             console.log(e);
             setloading(false);
-            setres(`<p>Error occured. Try again.</p>`)
+            setres(`<p style="color: red;">Error occured. Try again.</p>`)
         }
     }
 
@@ -67,7 +67,7 @@ const Ques_temp = () => {
             <div className="text-[60px] flex justify-center mt-10 font-cus2">
                 <div className="w-[80%] flex justify-start">{ q_no } .</div>
             </div>
-            <div className="flex justify-center min-h-[50%]">
+            <div className="flex justify-center min-h-[30%]">
                 <div className="text-[30px] m-10 justify-start flex w-[80%]">
                     {questions[q_no-1].question}
                 </div>
@@ -83,7 +83,7 @@ const Ques_temp = () => {
                 dangerouslySetInnerHTML={{ __html: res}}
                 >
                 </div>
-                {loading && <div className="bg-black font-cus2 text-[40px] w-[80%] h-[150px] flex justify-center items-center" 
+                {loading && <div className="bg-black font-cus2 text-[40px] w-[100%] h-[100px] flex justify-center items-center" 
                 >
                     <Loading />
             </div> }

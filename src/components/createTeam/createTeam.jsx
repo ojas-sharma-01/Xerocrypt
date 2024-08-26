@@ -142,7 +142,7 @@ const Createteam = () => {
                 dangerouslySetInnerHTML={{ __html: res}}
                 >
                 </div>
-                {loading && <div className="bg-black font-cus2 text-[40px] w-[80%] h-[150px] flex justify-center items-center" 
+                {loading && <div className="bg-black font-cus2 text-[40px] w-[80%] h-[100px] flex justify-center items-center" 
                 >
                     <Loading />
                 </div> }
