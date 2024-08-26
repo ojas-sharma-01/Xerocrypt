@@ -14,6 +14,8 @@ import Login from './components/login_signup/login.jsx';
 import AuthProvider from './contexts/authcontext.jsx';
 import TeamProvider from './contexts/teamcontexts.jsx';
 import Signup from './components/login_signup/signup.jsx';
+import Ques_temp from './question_template/ques_template.jsx';
+import Four04 from './components/404/four04.jsx';
 
 function App() {
   return (
@@ -22,7 +24,7 @@ function App() {
         <Router>
           <div className="App bg-black">
             <Routes>
-              {/* <Route path='/team' element={<Team />} /> */}
+              <Route path='/ques/:q_no' element={< Ques_temp />} />
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Signup />} />
               <Route path='/your_team' element={<YourTeam />} />
@@ -33,6 +35,7 @@ function App() {
               <Route path="/second" element={<Second />} />
               <Route path="/third" element={<Third />} />
               <Route path='/leaderboard/:no' element={<Leaderb />} />
+              <Route path='*' element={<Four04 />} />
             </Routes>
           </div>
         </Router>

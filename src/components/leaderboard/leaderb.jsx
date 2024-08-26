@@ -12,8 +12,8 @@ const Leaderb = () => {
     const [board, setboard] = useState([]);
     const bottomtrail = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     const getd = async () => {
-        const get_entries = collection(db, "leaderboard");
-        const querys = query(get_entries, orderBy('score', "desc"));
+        const get_entries = collection(db, "Teams");
+        const querys = query(get_entries, orderBy('level', "desc"));
         const q = await getDocs(querys);
         var cnt = -1;
 
@@ -35,7 +35,7 @@ const Leaderb = () => {
     return (
         <div className="bg-black min-h-screen max-w-[100%] text-white font-[Roboto] flex flex-col items-center overflow-x-hidden">
             <Header />
-            <div className='bg-black w-[80%] h-full'>
+            <div className='bg-black w-[80%] min-h-[70%]'>
                 <div className="m-2 2xl:m-6 text-[40px] 2xl:text-[60px] font-cus2"> Leaderboard </div>
                 <div className='flex-col items-center m-[40px] mx-0 border-white border-2'>
                     <div className='flex m-[10px] md:m-[30px] border-0 md:border-b-2 border-white mb-16'>
@@ -51,9 +51,9 @@ const Leaderb = () => {
                     {board.map((ent, index) => {
                         return (<div key={index} className={`flex m-[20px] py-[2px] ${index%2 == 0 ? 'bg-gray-800' : ''}`}>
                             <div className='hidden md:flex flex-[0.2] justify-center'>{index+1}</div>
-                            <div className='flex-[0.25] flex justify-center'>{ent.data.score}</div>
+                            <div className='flex-[0.25] flex justify-center'>{ent.data.level*100}</div>
                             <div className='flex-[0.5] flex justify-center'>{ent.data.name}</div>
-                            <div className='flex-[0.25] flex justify-center'>{ent.data.questions}</div>
+                            <div className='flex-[0.25] flex justify-center'>{ent.data.level}</div>
                         </div>)
                     })}
                 </div>

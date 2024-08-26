@@ -5,9 +5,11 @@ import devcomm from './devcomm.png';
 import { authContext } from "../../contexts/authcontext";
 import { useContext, useState } from "react";
 import { motion } from "framer-motion";
+import { teamContext } from "../../contexts/teamcontexts";
 
 const Header = () => {
     const {user, login, logout} = useContext(authContext);
+    const {team} = useContext(teamContext);
     const [ham, setham] = useState(false);
     return (
         <>
@@ -44,6 +46,9 @@ const Header = () => {
                 <div className="m-4"><Link to="/leaderboard/1" >
                         <Button text="Leaderboard" text_size="text-[20px]" border_width="p-[1px]" width="w-[140px]"/>
                     </Link></div>
+                    <div className="m-4"><Link to="/ques/1" >
+                        <Button text="Arena" text_size="text-[20px]" border_width="p-[1px]" width="w-[140px]"/>
+                    </Link></div>
             </div>
             // </motion.div>
             }
@@ -75,6 +80,11 @@ const Header = () => {
                         <Button text="Leaderboard" text_size="text-[20px]" border_width="p-[1px]" width="w-[140px]"/>
                     </Link>
                 </div>
+                {team && <div className="mx-8 flex items-center">
+                    <Link to="/ques/1" >
+                        <Button text="Arena" text_size="text-[20px]" border_width="p-[1px]" width="w-[140px]"/>
+                    </Link>
+                </div>}
         </div>
         </>
     );

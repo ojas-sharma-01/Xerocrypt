@@ -11,7 +11,7 @@ const db = getFirestore(firebapp);
 const Jointeam = () => {
     const [res, setres] = useState('');
     const [team_id, setteam_id] = useState('');
-    const {user} = useContext(authContext);
+    const {user, uname} = useContext(authContext);
     const {team, changeTeam, change_team_name} = useContext(teamContext);
     const handle_teamchange = async () => {
         try {
@@ -44,7 +44,7 @@ const Jointeam = () => {
             var new_team = await get_team.data().members;
             new_team.push({
                 id: user.uid,
-                mname: user.displayName,
+                mname: uname,
                 posn: 'member',
             });
             await setDoc(doc(db, 'Teams', team_id), {

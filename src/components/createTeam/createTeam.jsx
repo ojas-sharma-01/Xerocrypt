@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Header from "../header/header";
 import { memo, useContext, useEffect, useState } from "react";
 import { firebapp } from "../../fireb";
-import { doc, setDoc, getFirestore, updateDoc, getDoc } from "firebase/firestore";
+import { doc, setDoc, getFirestore, updateDoc, getDoc, collection, where, getDocs, query } from "firebase/firestore";
 import { authContext } from "../../contexts/authcontext";
 import { teamContext } from '../../contexts/teamcontexts';
 import { Link } from "react-router-dom";
@@ -24,10 +24,18 @@ const Createteam = () => {
     };
     const submit_team = async () => {
         try {
+            const q = await query(collection(db, 'Teams'), where('name', '==', tname));
+            const get = await getDocs(q);
+            if (!get.empty) {
+                setres(`<p style="color:red;">Team Name Taken.</p>`)
+                return;
+            }
+
             await setDoc(doc(db, 'Teams', cap), {
                 Teamid: cap,
                 name: tname,
                 members : [{id: user.uid, mname: uname, posn: 'leader'}],
+                level: 0
             });
 
             await updateDoc(doc(db, 'Users', user.uid), {
@@ -45,6 +53,13 @@ const Createteam = () => {
 
     const handle_create_new_team = async () => {
         try {
+            const q = await query(collection(db, 'Teams'), where('name', '==', tname));
+            const get = await getDocs(q);
+            if (!get.empty) {
+                setres(`<p style="color:red;">Team Name Taken.</p>`)
+                return;
+            }
+
             await setDoc(doc(db, 'Users', user.uid), {
                 team_id: null
             }, {
@@ -105,7 +120,7 @@ const Createteam = () => {
                     <Button className="mx-10" text_size="text-[20px]" text="Create Team" width="w-[150px]" border_width="p-[1px]"
                     />
                 </div>
-                <div dangerouslySetInnerHTML={{ __html: res }}>
+                <div className="text-[35px]"dangerouslySetInnerHTML={{ __html: res }}>
                 </div></>) : 
                 (<>
                 <div className="text-[30px]">You are already a part of a team.</div>
