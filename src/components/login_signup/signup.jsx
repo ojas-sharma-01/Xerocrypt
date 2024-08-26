@@ -5,18 +5,21 @@ import { sendEmailVerification, getAuth, createUserWithEmailAndPassword, updateP
 import { authContext } from "../../contexts/authcontext";
 import { useContext, useEffect, useState } from "react";
 import { collection, getFirestore, setDoc, doc } from "firebase/firestore";
+import Loading from "../loader/loading_";
 
 const auth  = getAuth();
 const db = getFirestore();
 const auth_doc = collection(db, 'Users');
 
 const Signup = () => {
+    const [loading, setloading] = useState(false);
     const {user, login} = useContext(authContext);
     const [cred, setcred] = useState({email:"", password:"", username:"", name:""});
     const [res, setres] = useState("");
     const Nav = useNavigate();
 
     const handlesignup = async (e) => {
+        setloading(true);
         createUserWithEmailAndPassword(auth, cred.email, cred.password)
         .then(async (usercred) => {
 
@@ -32,12 +35,14 @@ const Signup = () => {
             await updateProfile(usercred.user, {
                 displayName: cred.name
             })
-    
+            
+            setloading(false);
             setres('<p style="color:green;">\
                 email verification link sent\
                 </p>');
         })
         .catch(e => {
+            setloading(false);
             setres(`<p style="color:red;">\
                 ${e.message}
                 </p>`);
@@ -56,15 +61,17 @@ const Signup = () => {
                 <div className="my-20 font-cus2 text-[50px]">Signup</div>
                 <div className="flex flex-col justify-evenly items-center h-[30%] text-[20px]">
                     <div>
-                        <input type="text" value={cred.email} 
+                        <input type="email" value={cred.email} 
                         name="email"
+                        required={true}
                         className="bg-gray-900 border-2 border-white h-[50px] w-[250px] text-center" 
                         placeholder="Enter your Email"
                         onChange={handlecred}/>
                     </div>
                     <div>
-                        <input type="text" value={cred.password}
+                        <input type="password" value={cred.password}
                         name="password"
+                        required={true}
                         className="bg-gray-900 border-2 border-white h-[50px] w-[250px] text-center" 
                         placeholder="Enter your Password"
                         onChange={handlecred}/>
@@ -91,7 +98,14 @@ const Signup = () => {
                 <div className="text-[20px] font-cus2">Click 
                     <Link to="/login" className="hover:bg-gray-900 text-green-300"> here</Link> to login.
                 </div>
-                <div className="font-cus2 text-[30px] m-4" dangerouslySetInnerHTML={{ __html: res }}></div>
+                <div className="bg-black m-10 font-cus2 text-[40px] flex justify-center items-center" 
+                dangerouslySetInnerHTML={{ __html: res}}
+                >
+                </div>
+                {loading && <div className="bg-black font-cus2 text-[40px] w-[80%] h-[150px] flex justify-center items-center" 
+                >
+                    <Loading />
+                </div> }
             </div>
         </div>
     );

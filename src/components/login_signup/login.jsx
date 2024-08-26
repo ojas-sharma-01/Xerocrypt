@@ -6,14 +6,16 @@ import { authContext } from "../../contexts/authcontext";
 import { useContext, useEffect, useState } from "react";
 import { teamContext } from "../../contexts/teamcontexts";
 import { getDoc, getFirestore, doc } from "firebase/firestore";
+import Loading from "../loader/loading_";
 
 const auth  = getAuth();
 const db = getFirestore();
 const Login = () => {
+    const [loading, setloading] = useState(false);
     const { changeTeam, change_team_name } = useContext(teamContext);
     const {user, login, changename} = useContext(authContext);
     const [cred, setcred] = useState({email:"", password:""});
-    const [res, setres] = useState('<p></p>');
+    const [res, setres] = useState();
     const Nav = useNavigate();
 
     // useEffect(() => {
@@ -21,6 +23,7 @@ const Login = () => {
     // }, [user]);
 
     const handlelogin = (e) => {
+        setloading(true);
         signInWithEmailAndPassword(auth, cred.email, cred.password)
         .then(async (usercred) => {
             // (usercred.user.emailVerified === true) ? (() => {login(); setres('success')}) : (() => {setres('unsuccess')});
@@ -35,6 +38,7 @@ const Login = () => {
                     changeTeam(get_team.data().team_id)
                     change_team_name(get_team_name.data().name)
                 }
+                setloading(false);
 
                 setres('\
                     <p style="color:green;"> \
@@ -47,6 +51,7 @@ const Login = () => {
                 }, 1500);
             } 
             else {
+                setloading(false);
                 setres('\
                     <p style="color:red;"> \
                     Email Not Verified \
@@ -55,6 +60,7 @@ const Login = () => {
             }
         })
         .catch(e => {
+            setloading(false);
             console.log(e);
             setres(`\
                 <p style="color:red;"> \
@@ -77,14 +83,14 @@ const Login = () => {
                 <div className="my-20 font-cus2 text-[50px]">Login</div>
                 <div className="flex flex-col justify-center items-center h-[30%] text-[20px]">
                     <div className="my-2">
-                        <input type="text" value={cred.email} 
+                        <input type="email" value={cred.email} 
                         name="email"
                         className="bg-gray-900 border-2 border-white h-[50px] w-[250px] text-center" 
                         placeholder="Enter your Email"
                         onChange={handlecred}/>
                     </div>
                     <div className="my-2">
-                        <input type="text" value={cred.password}
+                        <input type="password" value={cred.password}
                         name="password"
                         className="bg-gray-900 border-2 border-white h-[50px] w-[250px] text-center" 
                         placeholder="Enter your Password"
@@ -97,9 +103,14 @@ const Login = () => {
                 <div className="text-[20px] font-cus2">Click 
                     <Link to="/register" className="hover:bg-gray-900 text-green-300"> here</Link> to create an account.
                 </div>
-                <div className="bg-black font-cus2 text-[40px] m-10" 
-                dangerouslySetInnerHTML={{__html : res}}> 
+                <div className="bg-black m-10 font-cus2 text-[40px] flex justify-center items-center" 
+                dangerouslySetInnerHTML={{ __html: res}}
+                >
                 </div>
+                {loading && <div className="bg-black font-cus2 text-[40px] w-[80%] h-[150px] flex justify-center items-center" 
+                >
+                    <Loading />
+                </div> }
             </div>
         </div>
     );

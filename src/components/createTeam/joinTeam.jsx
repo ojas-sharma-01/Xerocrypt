@@ -6,19 +6,23 @@ import { teamContext } from "../../contexts/teamcontexts";
 import { collection, doc, getDoc, getDocs, getFirestore, query, setDoc, where } from "firebase/firestore";
 import { firebapp } from "../../fireb";
 import { authContext } from "../../contexts/authcontext";
+import Loading from "../loader/loading_";
 
 const db = getFirestore(firebapp);
 const Jointeam = () => {
+    const [loading, setloading] = useState(false);
     const [res, setres] = useState('');
     const [team_id, setteam_id] = useState('');
     const {user, uname} = useContext(authContext);
     const {team, changeTeam, change_team_name} = useContext(teamContext);
     const handle_teamchange = async () => {
+        setloading(true);
         try {
             const q = query(collection(db, 'Teams'), where('Teamid', '==', team_id))
             const curr_team = await getDocs(q);
             
             if (curr_team.empty) {
+                setloading(false)
                 setres(`<p style="color:red;">No team exists with given code.</p>`)
                 return;
             }
@@ -61,10 +65,12 @@ const Jointeam = () => {
 
             changeTeam(team_id);
             change_team_name(get_team.data().name);
+            setloading(false)
             setres(`<p style="color:green;">Joined team with code ${team_id}</p>`)
         }
         catch (e) {
             console.log(e);
+            setloading(false)
             setres(`<p style="color:red;">Some error occured. Try again</p>`)
         }
     };
@@ -95,7 +101,14 @@ const Jointeam = () => {
                     <Button className="mx-10" text_size="text-[20px] md:text-[30px]" text="Join/Change" 
                     width="w-[240px]" height="100px" border_width="p-[1px]"/>
                     </div>
-                    <div className="text-[25px]" dangerouslySetInnerHTML={{ __html: res }}></div>
+                    <div className="bg-black m-10 font-cus2 text-[40px] flex justify-center items-center" 
+                dangerouslySetInnerHTML={{ __html: res}}
+                >
+                </div>
+                {loading && <div className="bg-black font-cus2 text-[40px] w-[80%] h-[150px] flex justify-center items-center" 
+                >
+                    <Loading />
+                </div> }
                 </div>
                 : <div className="text-[30px] text-white my-auto">You are not logged in.</div>}
             </div>

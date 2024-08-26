@@ -2,9 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home/Home.jsx';
-import First from './questions/first/one';
-import Second from './questions/second/two';
-import Third from './questions/third/three';
 import Leaderb from './components/leaderboard/leaderb';
 import Team from './components/createTeam/team';
 import Jointeam from './components/createTeam/joinTeam.jsx';
@@ -16,6 +13,7 @@ import TeamProvider from './contexts/teamcontexts.jsx';
 import Signup from './components/login_signup/signup.jsx';
 import Ques_temp from './question_template/ques_template.jsx';
 import Four04 from './components/404/four04.jsx';
+import Loading from './components/loader/loading_.jsx';
 
 function App() {
   return (
@@ -31,9 +29,6 @@ function App() {
               <Route path='/join_team' element={<Jointeam />} />
               <Route path='/create_team' element={<Createteam />} />
               <Route path="/" element={<Team />} />
-              <Route path="/first" element={<First />} />
-              <Route path="/second" element={<Second />} />
-              <Route path="/third" element={<Third />} />
               <Route path='/leaderboard/:no' element={<Leaderb />} />
               <Route path='*' element={<Four04 />} />
             </Routes>

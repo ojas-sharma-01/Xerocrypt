@@ -7,9 +7,11 @@ import { doc, setDoc, getFirestore, updateDoc, getDoc, collection, where, getDoc
 import { authContext } from "../../contexts/authcontext";
 import { teamContext } from '../../contexts/teamcontexts';
 import { Link } from "react-router-dom";
+import Loading from "../loader/loading_";
 
 const db = getFirestore(firebapp);
 const Createteam = () => {
+    const [loading, setloading] = useState(false);
     const [res, setres] = useState('');
     const {user, uname} = useContext(authContext);
     const {team, changeTeam, change_team_name} = useContext(teamContext);
@@ -23,10 +25,12 @@ const Createteam = () => {
         }
     };
     const submit_team = async () => {
+        setloading(true);
         try {
             const q = await query(collection(db, 'Teams'), where('name', '==', tname));
             const get = await getDocs(q);
             if (!get.empty) {
+                setloading(false)
                 setres(`<p style="color:red;">Team Name Taken.</p>`)
                 return;
             }
@@ -44,18 +48,22 @@ const Createteam = () => {
 
             changeTeam(cap);
             change_team_name(tname);
+            setloading(false)
             setres(`<p style="color:green;">Team Created</p>`)
         }
         catch (e) {
+            setloading(false);
             setres(`<p style="color:red;">Some error occured. Try again.</p>`)
         }
     }
 
     const handle_create_new_team = async () => {
+        setloading(true)
         try {
             const q = await query(collection(db, 'Teams'), where('name', '==', tname));
             const get = await getDocs(q);
             if (!get.empty) {
+                setloading(false)
                 setres(`<p style="color:red;">Team Name Taken.</p>`)
                 return;
             }
@@ -78,9 +86,11 @@ const Createteam = () => {
 
             changeTeam(null);
             change_team_name(null);
+            setloading(false)
             setres(`<p style="color:green;"></p>`)
         }
         catch (e) {
+            setloading(false)
             setres(`<p style="color:red;">Some error occured Try again.</p>`)
         }
     };
@@ -128,7 +138,14 @@ const Createteam = () => {
                 onClick={handle_create_new_team}>&nbsp;here&nbsp;
                     </div>to leave your current team and create a new one</div>
                 <div className="text-[20px]">Click <Link to="/join_team" className="text-green-500"> here </Link> to change your team.</div>
-                <div className="text-[25px]" dangerouslySetInnerHTML={{__html: res}}></div>
+                <div className="bg-black m-10 font-cus2 text-[40px] flex justify-center items-center" 
+                dangerouslySetInnerHTML={{ __html: res}}
+                >
+                </div>
+                {loading && <div className="bg-black font-cus2 text-[40px] w-[80%] h-[150px] flex justify-center items-center" 
+                >
+                    <Loading />
+                </div> }
                 </>)}
             </div> : <div className="text-white text-[30px] my-auto">You are not logged in.</div>}
             </div>

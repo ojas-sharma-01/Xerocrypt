@@ -2,9 +2,11 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { teamContext } from "./teamcontexts";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { firebapp } from "../fireb";
+import { getAuth, signOut } from "firebase/auth";
 
 const authContext = createContext();
 const db = getFirestore(firebapp);
+const auth = getAuth();
 const AuthProvider = ({ children }) => {
     const {changeTeam, change_team_name} = useContext(teamContext);
     const [user, setuser] = useState(null);
@@ -55,6 +57,11 @@ const AuthProvider = ({ children }) => {
         document.cookie = "token=; path=/; max-age=0";
         changeTeam(null);
         change_team_name(null);
+        signOut(auth).then(() => {
+            console.log('User signed out successfully');
+        }).catch((error) => {
+            console.error('Error signing out: ', error);
+        });
     }
 
     return (
