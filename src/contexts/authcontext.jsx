@@ -10,16 +10,21 @@ const AuthProvider = ({ children }) => {
     const [user, setuser] = useState(null);
     const [uname, setuname] = useState(null);
 
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) {
+            return parts.pop().split(';').shift();
+        }
+    }
+
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const ret = await fetch("https://xero-back.vercel.app/api/auth/check", {
-                    credentials: 'include',
-                });
-                const response = await ret.json();
-                if (response.isAuthenticated) {
-                    setuser({uid: response.token});
-                    const d = await getDoc(doc(db, 'Users', response.token));
+                if (document.cookie) {
+                    const token = getCookie('token');
+                    setuser({uid: token});
+                    const d = await getDoc(doc(db, 'Users', token));
                     setuname(d.data().name);
                     changeTeam(d.data().team_id);
                     if (d.data().team_id != null) {
@@ -40,14 +45,14 @@ const AuthProvider = ({ children }) => {
     
     const login = (use) => {
         setuser(use);
-        document.cookie = `token=${use.uid}; Secure; path=/; max-age=${60 * 60 * 24 * 7}`;
+        document.cookie = `token=${use.uid}; path=/; max-age=${60 * 60 * 24 * 7}`;
         console.log(document.cookie);
     }
 
     const logout = () => {
         setuname(null);
         setuser(null);
-        document.cookie = "token=; path=/; Secure; max-age=0";
+        document.cookie = "token=; path=/; max-age=0";
         changeTeam(null);
         change_team_name(null);
     }
