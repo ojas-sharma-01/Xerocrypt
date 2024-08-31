@@ -71,7 +71,7 @@ const Header = () => {
                     </Link>) : 
                     (   
                         <div onClick={() => {logout(); console.log("ddd")}}>
-                        <Button text="Logout" text_size="text-[20px]" border_width="p-[1px]" width="w-[160px]"/>
+                        <Button text="Logout" text_size="text-[20px]" border_width="p-[1px]" width="w-[140px]"/>
                         </div>
                     )}
                 </div>
