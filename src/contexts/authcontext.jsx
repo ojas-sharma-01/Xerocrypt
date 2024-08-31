@@ -48,31 +48,6 @@ const AuthProvider = ({ children }) => {
     const login = (use) => {
         setuser(use);
         document.cookie = `token=${use.uid}; path=/; max-age=${60 * 60 * 24 * 7}`;
-        console.log(document.cookie);
-
-        // Example: Listen to authentication state changes
-onAuthStateChanged(auth, async (user) => {
-    if (user) {
-      // User is signed in
-      const idTokenResult = await user.getIdTokenResult();
-      
-      // Log the entire token
-      console.log('ID Token:', idTokenResult.token);
-      
-      // Log custom claims
-      console.log('Custom Claims:', idTokenResult.claims);
-  
-      // Log the specific domain claim
-      if (idTokenResult.claims.domain) {
-        console.log('Domain:', idTokenResult.claims.domain);
-      } else {
-        console.log('No domain claim found.');
-      }
-    } else {
-      // No user is signed in
-      console.log('No user is signed in');
-    }
-  });
     }
 
     const logout = () => {

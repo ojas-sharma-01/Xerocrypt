@@ -22,7 +22,13 @@ const Login = () => {
     //     console.log(user);
     // }, [user]);
 
-    const handlelogin = (e) => {
+    const handlelogin = async (e) => {
+        const ret = await fetch('https://xero-back.vercel.app/verify');
+        const dat = await ret.json();
+        if (dat.approved === false) {
+            return;
+        };
+        console.log(dat);
         setloading(true);
         signInWithEmailAndPassword(auth, cred.email, cred.password)
         .then(async (usercred) => {
