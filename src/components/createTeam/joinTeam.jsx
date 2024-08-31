@@ -20,7 +20,11 @@ const Jointeam = () => {
         try {
             const q = query(collection(db, 'Teams'), where('Teamid', '==', team_id))
             const curr_team = await getDocs(q);
-            
+            const fdoc = curr_team.map(ele => ele);
+            let newpos;
+
+            (fdoc.members.length === 0) ? (newpos = 'leader') : (newpos = 'member');
+
             if (curr_team.empty) {
                 setloading(false)
                 setres(`<p style="color:red;">No team exists with given code.</p>`)
@@ -40,7 +44,7 @@ const Jointeam = () => {
 
                 curr_team.forEach(async (ele) => {
                     const get_user_in_curr_team = await ele.data().members;
-                    const updated_members = get_user_in_curr_team.filter(ele => user.uid != ele.id ? true : false);
+                    const updated_members = get_user_in_curr_team.filter(ele => user.uid !== ele.id ? true : false);
 
                     await setDoc(doc(db, 'Teams', team), {
                         Teamid: team,
@@ -56,7 +60,7 @@ const Jointeam = () => {
             new_team.push({
                 id: user.uid,
                 mname: uname,
-                posn: 'member',
+                posn: newpos,
             });
             await setDoc(doc(db, 'Teams', team_id), {
                 members: new_team
