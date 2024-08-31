@@ -20,7 +20,10 @@ const Jointeam = () => {
         try {
             const q = query(collection(db, 'Teams'), where('Teamid', '==', team_id))
             const curr_team = await getDocs(q);
-            const fdoc = curr_team.map(ele => ele);
+            let fdoc;
+            curr_team.forEach(ele => {
+                fdoc = ele.data()
+            });
             let newpos;
 
             (fdoc.members.length === 0) ? (newpos = 'leader') : (newpos = 'member');
