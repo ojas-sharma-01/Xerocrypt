@@ -23,13 +23,15 @@ const Login = () => {
     // }, [user]);
 
     const handlelogin = async (e) => {
+        setloading(true);
         const ret = await fetch('https://xero-back.vercel.app/verify');
         const dat = await ret.json();
+        console.log(dat);
         if (dat.approved === false) {
+            setloading(false);
             return;
         };
-        console.log(dat);
-        setloading(true);
+
         signInWithEmailAndPassword(auth, cred.email, cred.password)
         .then(async (usercred) => {
             // (usercred.user.emailVerified === true) ? (() => {login(); setres('success')}) : (() => {setres('unsuccess')});
