@@ -39,7 +39,9 @@ const Jointeam = () => {
                 setres(`<p style="color:red;">Team is full.</p>`);
                 return;
             }
-
+            
+            console.log(fdoc.members.length);
+            
             if (team != null) {
                 const get_all_teams = collection(db, 'Teams');
                 const q = query(collection(db, 'Teams'), where('Teamid', '==', team))
