@@ -26,6 +26,13 @@ const Jointeam = () => {
                 setres(`<p style="color:red;">No team exists with given code.</p>`)
                 return;
             }
+            
+            if (curr_team.size === 4) {
+                setloading(false);
+                setres(`<p style="color:red;">Team is full.</p>`);
+                return;
+            }
+
             if (team != null) {
                 const get_all_teams = collection(db, 'Teams');
                 const q = query(collection(db, 'Teams'), where('Teamid', '==', team))
