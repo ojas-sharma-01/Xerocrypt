@@ -34,7 +34,7 @@ const Jointeam = () => {
                 return;
             }
             
-            if (curr_team.size === 4) {
+            if (fdoc.members.length === 4) {
                 setloading(false);
                 setres(`<p style="color:red;">Team is full.</p>`);
                 return;
