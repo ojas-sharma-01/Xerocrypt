@@ -21,6 +21,7 @@ const Ques_temp = () => {
 
     const check_ans = async () => {
         setloading(true);
+        set_can_move(false);
         try {
             const ret = await fetch(`https://xero-back.vercel.app/check_ans?q_no=${q_no}&ans=${ans}`);
             const data = await ret.json();
