@@ -1,13 +1,13 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { teamContext } from "./teamcontexts";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
-import { firebapp } from "../fireb";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
+import { DB } from "../firebutil/firestore/firestoredb";
 
 const authContext = createContext();
-const db = getFirestore(firebapp);
 const auth = getAuth();
 const AuthProvider = ({ children }) => {
+    const {db} = useContext(DB);
     const {changeTeam, change_team_name} = useContext(teamContext);
     const [user, setuser] = useState(null);
     const [uname, setuname] = useState(null);

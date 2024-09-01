@@ -2,15 +2,15 @@ import Button from "../button_cus/button_cus";
 import { motion } from "framer-motion";
 import Header from "../header/header";
 import { memo, useContext, useEffect, useState } from "react";
-import { firebapp } from "../../fireb";
 import { doc, setDoc, getFirestore, updateDoc, getDoc, collection, where, getDocs, query } from "firebase/firestore";
 import { authContext } from "../../contexts/authcontext";
 import { teamContext } from '../../contexts/teamcontexts';
 import { Link } from "react-router-dom";
 import Loading from "../loader/loading_";
+import { DB } from "../../firebutil/firestore/firestoredb";
 
-const db = getFirestore(firebapp);
 const Createteam = () => {
+    const {db} = useContext(DB)
     const [loading, setloading] = useState(false);
     const [res, setres] = useState('');
     const {user, uname} = useContext(authContext);

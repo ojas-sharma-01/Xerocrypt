@@ -4,12 +4,12 @@ import Header from "../header/header";
 import { useContext, useState } from "react";
 import { teamContext } from "../../contexts/teamcontexts";
 import { collection, doc, getDoc, getDocs, getFirestore, query, setDoc, where } from "firebase/firestore";
-import { firebapp } from "../../fireb";
 import { authContext } from "../../contexts/authcontext";
 import Loading from "../loader/loading_";
+import { DB } from "../../firebutil/firestore/firestoredb";
 
-const db = getFirestore(firebapp);
 const Jointeam = () => {
+    const{db} = useContext(DB);
     const [loading, setloading] = useState(false);
     const [res, setres] = useState('');
     const [team_id, setteam_id] = useState('');

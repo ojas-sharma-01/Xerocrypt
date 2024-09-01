@@ -2,14 +2,14 @@ import { useContext, useEffect, useState } from "react";
 import Header from "../components/header/header";
 import Button from "../components/button_cus/button_cus";
 import { getFirestore, setDoc, doc, getDoc } from "firebase/firestore";
-import { firebapp } from "../fireb";
 import { teamContext } from "../contexts/teamcontexts";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import questions from "./questions";
 import Loading from "../components/loader/loading_";
+import { DB } from "../firebutil/firestore/firestoredb";
 
-const db = getFirestore(firebapp);
 const Ques_temp = () => {
+    const {db} = useContext(DB);
     const [loading, setloading] = useState(false);
     var { q_no } = useParams();
     q_no = parseInt(q_no);

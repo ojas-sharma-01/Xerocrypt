@@ -3,9 +3,10 @@ import Header from "../header/header";
 import flag from './flag.png';
 import { teamContext } from "../../contexts/teamcontexts";
 import { getFirestore, getDoc, doc } from "firebase/firestore";
+import { DB } from "../../firebutil/firestore/firestoredb";
 
-const db = getFirestore();
 const YourTeam = () => {
+    const {db} = useContext(DB);
     const {team, team_name} = useContext(teamContext);
 
     const [team_members, setTeammembers] = useState([]);

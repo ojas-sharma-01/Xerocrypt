@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
-import { firebapp }from '../../fireb';
+import { useContext, useEffect, useState } from 'react';
 import { getFirestore, getDocs, query, orderBy, collection } from 'firebase/firestore';
 import Header from '../header/header';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { DB } from '../../firebutil/firestore/firestoredb';
 
-const db = getFirestore(firebapp);
 const Leaderb = () => {
+    const {db} = useContext(DB);
     const nav = useNavigate();
     var { no } = useParams(); 
     no = parseInt(no);

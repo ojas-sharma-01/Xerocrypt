@@ -6,12 +6,12 @@ import { authContext } from "../../contexts/authcontext";
 import { useContext, useEffect, useState } from "react";
 import { collection, getFirestore, setDoc, doc } from "firebase/firestore";
 import Loading from "../loader/loading_";
+import { DB } from "../../firebutil/firestore/firestoredb";
 
 const auth  = getAuth();
-const db = getFirestore();
-const auth_doc = collection(db, 'Users');
 
 const Signup = () => {
+    const {db} = useContext(DB);
     const [loading, setloading] = useState(false);
     const {user, login} = useContext(authContext);
     const [cred, setcred] = useState({email:"", password:"", username:"", name:""});

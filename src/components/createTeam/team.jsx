@@ -5,6 +5,7 @@ import { DateTime} from "luxon";
 import { useState, useEffect, useContext } from "react";
 import Header from "../header/header";
 import { authContext } from "../../contexts/authcontext";
+import { clockContext } from "../../contexts/clockContext";
 
 const guidelines = [{
                     guideline: "Lorem ipsum dolor sit, amet consectetur \
@@ -26,34 +27,10 @@ const guidelines = [{
                 },];
 
 const Team = () => {
-    const [Timer, settimer] = useState({});
     const [modal, setmodal] = useState(false);
     const {user, login, logout} = useContext(authContext);
+    const {clock} = useContext(clockContext);
 
-
-    useEffect(() => {
-        const targetDate = DateTime.local(2024, 9, 7, 0, 0).setZone('Asia/Kolkata');
-        
-        const updateTimer = () => {
-            const now = DateTime.now().setZone('Asia/Kolkata');
-            const diff = targetDate.diff(now, ['days', 'hours', 'minutes', 'seconds']);
-            
-            settimer({
-                days: diff.days,
-                hours: diff.hours,
-                minutes: diff.minutes,
-                seconds: Math.floor(diff.seconds)
-            });
-        };
-
-        const interval = setInterval(updateTimer, 1000);
-
-        return () => clearInterval(interval);
-    }, []);
-
-    useEffect(() => {
-        console.log(user);
-    }, []);
 
     return (
         <motion.div
@@ -95,7 +72,8 @@ const Team = () => {
             <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto bg-black w-full h-full">
                 <div className="text-[40px] md:text-[100px] lg:text-[150px] font-cus2 text-green-400">XERO.CRYPT 2.0</div>
                 <div className="text-[30px] md:text-[70px] font-cus2 text-green-400">
-                    {Timer.days}:{Timer.hours}:{Timer.minutes}:{Timer.seconds}
+                    { clock === null ? 0 : clock.days }:{ clock === null ? 0 : clock.hours }:
+                    { clock === null ? 0 : clock.minutes}:{ clock === null ? 0 : clock.seconds }
                 </div>
                 <div className="text-[30px] md:text-[50px] text-white w-full font-cus2">Create/Join Your Team.</div>
                 <div className="mt-4 flex justify-evenly w-[100%] font-cus2">

@@ -7,10 +7,11 @@ import { useContext, useEffect, useState } from "react";
 import { teamContext } from "../../contexts/teamcontexts";
 import { getDoc, getFirestore, doc } from "firebase/firestore";
 import Loading from "../loader/loading_";
+import { DB } from "../../firebutil/firestore/firestoredb";
 
 const auth  = getAuth();
-const db = getFirestore();
 const Login = () => {
+    const {db} = useContext(DB);
     const [loading, setloading] = useState(false);
     const { changeTeam, change_team_name } = useContext(teamContext);
     const {user, login, changename} = useContext(authContext);

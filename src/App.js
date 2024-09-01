@@ -14,28 +14,34 @@ import Signup from './components/login_signup/signup.jsx';
 import Ques_temp from './question_template/ques_template.jsx';
 import Four04 from './components/404/four04.jsx';
 import Loading from './components/loader/loading_.jsx';
+import ClockProvider from './contexts/clockContext.jsx';
+import Dbprovider from './firebutil/firestore/firestoredb.js';
 
 function App() {
   return (
-    <TeamProvider>
-      <AuthProvider>
-        <Router>
-          <div className="App bg-black">
-            <Routes>
-              <Route path='/ques/:q_no' element={< Ques_temp />} />
-              <Route path='/login' element={<Login />} />
-              <Route path='/register' element={<Signup />} />
-              <Route path='/your_team' element={<YourTeam />} />
-              <Route path='/join_team' element={<Jointeam />} />
-              <Route path='/create_team' element={<Createteam />} />
-              <Route path="/" element={<Team />} />
-              <Route path='/leaderboard/:no' element={<Leaderb />} />
-              <Route path='*' element={<Four04 />} />
-            </Routes>
-          </div>
-        </Router>
-      </AuthProvider>
-    </TeamProvider>
+    <ClockProvider>
+      <Dbprovider>
+      <TeamProvider>
+        <AuthProvider>
+            <Router>
+              <div className="App bg-black">
+                <Routes>
+                  <Route path='/ques/:q_no' element={< Ques_temp />} />
+                  <Route path='/login' element={<Login />} />
+                  <Route path='/register' element={<Signup />} />
+                  <Route path='/your_team' element={<YourTeam />} />
+                  <Route path='/join_team' element={<Jointeam />} />
+                  <Route path='/create_team' element={<Createteam />} />
+                  <Route path="/" element={<Team />} />
+                  <Route path='/leaderboard/:no' element={<Leaderb />} />
+                  <Route path='*' element={<Four04 />} />
+                </Routes>
+              </div>
+            </Router>
+        </AuthProvider>
+      </TeamProvider>
+      </Dbprovider>
+    </ClockProvider>
   );
 }
 
