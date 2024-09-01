@@ -23,6 +23,13 @@ const Createteam = () => {
         if (data.type != 'error') {
             setcap(data.message);
         }
+        else if (data.type == 'error1') {
+            setres(`<p style="color:red;">Error occured. Try again.</p>`);
+        }
+        
+        else {
+            setres(`<p style="color:red;">Too many requests from this IP. try again in 15 mins.</p>`);
+        }
     };
     const submit_team = async () => {
         setloading(true);
@@ -96,7 +103,7 @@ const Createteam = () => {
     };
 
     useEffect(() => {
-        handle_cap();
+        if (team === null) handle_cap();
         console.log(team);
     }, [team]);
 
