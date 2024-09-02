@@ -1,8 +1,8 @@
 import Button from "../button_cus/button_cus";
 import { motion } from "framer-motion";
 import Header from "../header/header";
-import { memo, useContext, useEffect, useState } from "react";
-import { doc, setDoc, getFirestore, updateDoc, getDoc, collection, where, getDocs, query } from "firebase/firestore";
+import { useContext, useEffect, useState } from "react";
+import { doc, setDoc, updateDoc, getDoc, collection, where, getDocs, query } from "firebase/firestore";
 import { authContext } from "../../contexts/authcontext";
 import { teamContext } from '../../contexts/teamcontexts';
 import { Link } from "react-router-dom";
@@ -20,10 +20,10 @@ const Createteam = () => {
     const handle_cap = async () => {
         const ret = await fetch('https://xero-back.vercel.app/get_captcha');
         const data = await ret.json();
-        if (data.type != 'error') {
+        if (data.type !== 'error') {
             setcap(data.message);
         }
-        else if (data.type == 'error1') {
+        else if (data.type === 'error1') {
             setres(`<p style="color:red;">Error occured. Try again.</p>`);
         }
         
@@ -83,7 +83,7 @@ const Createteam = () => {
 
             const curr = await getDoc(doc(db, 'Teams', team));
             var new_team = await curr.data().members;
-            const updated_team = new_team.filter(ele => ele.id != user.uid ? true : false);
+            const updated_team = new_team.filter(ele => ele.id !== user.uid ? true : false);
 
             await setDoc(doc(db, 'Teams', team), {
                 members: updated_team

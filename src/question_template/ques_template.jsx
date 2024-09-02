@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import Header from "../components/header/header";
 import Button from "../components/button_cus/button_cus";
-import { getFirestore, setDoc, doc, getDoc } from "firebase/firestore";
+import { setDoc, doc, getDoc } from "firebase/firestore";
 import { teamContext } from "../contexts/teamcontexts";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import questions from "./questions";
 import Loading from "../components/loader/loading_";
 import { DB } from "../firebutil/firestore/firestoredb";
@@ -60,7 +60,7 @@ const Ques_temp = () => {
         setloading(false)
         setans('');
         setres('');
-    }, [q_no, team])
+    }, [q_no, team, Nav])
 
     return (
         <div className="bg-black text-white h-screen flex flex-col max-w-[100%] overflow-x-hidden">
