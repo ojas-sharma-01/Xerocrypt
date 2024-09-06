@@ -31,10 +31,11 @@ const Createteam = () => {
             setres(`<p style="color:red;">Too many requests from this IP. try again in 15 mins.</p>`);
         }
     };
+
     const submit_team = async () => {
         setloading(true);
         try {
-            const q = await query(collection(db, 'Teams'), where('name', '==', tname));
+            const q = await query(collection(db, 'Teams'), where('name', '==', tname.toUpperCase()));
             const get = await getDocs(q);
             if (!get.empty) {
                 setloading(false)
