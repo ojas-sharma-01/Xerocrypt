@@ -28,7 +28,7 @@ const YourTeam = () => {
                 <div className="my-20 mb-10 md:mb-20 text-[40px] md:text-[60px] text-green-400 font-custom">{ team ? team_name : "Team Name" }</div>
                 {/* <div className="my-4"> Team Name </div> */}
                 <div className="my-16 mb-2">{team ? `Team Code: ${team}` : "Team Code"} </div>
-                <div className="w-fit px-4 flex flex-col my-10 justify-evenly md:w-[40%] border-white border-2
+                <div className="w-[80%] px-4 flex flex-col my-10 justify-evenly md:w-[40%] border-white border-2
                 text-[20px] md:text-[30px]">
                     {team_members.map((ele, index) => {
                         return (
