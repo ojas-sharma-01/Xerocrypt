@@ -29,7 +29,7 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className="flex justify-center items-center mx-4">
-                    <span onClick={() => setHam(!ham)} className={`text-[35px] cursor-pointer ${ham ? 'hidden' : ''}`}>=</span>
+                    <span onClick={() => setHam(!ham)} className={`text-[35px] cursor-pointer font-cus2 ${ham ? 'hidden' : ''}`}>=</span>
                 </div>
                 <AnimatePresence>
                 {ham && 
