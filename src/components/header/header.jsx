@@ -24,7 +24,7 @@ const Header = () => {
                 <div className="flex-1 flex justify-start text-[20px] items-center">
                     <Link to="/" className="flex items-center mt-2 ml-2">
                         <img className="w-[40px]" src={xero_logo} alt="xero_logo" />
-                        <span className="text-[16px]">X</span> 
+                        <span className="text-[16px] font-cus2">X</span> 
                         <img className="h-[40px] ml-2" src={devcomm} alt="devcomm_logo" />
                     </Link>
                 </div>
