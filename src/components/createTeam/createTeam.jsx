@@ -105,7 +105,6 @@ const Createteam = () => {
 
     useEffect(() => {
         if (team === null) handle_cap();
-        console.log(team);
     }, [team]);
 
 
@@ -142,7 +141,7 @@ const Createteam = () => {
                 </div></>) : 
                 (<>
                 <div className="text-[30px]">You are already a part of a team.</div>
-                <div className="flex">Click<div className="hover:cursor-pointer text-green-500"
+                <div>Click<div className="hover:cursor-pointer text-green-500"
                 onClick={handle_create_new_team}>&nbsp;here&nbsp;
                     </div>to leave your current team and create a new one</div>
                 <div className="text-[20px]">Click <Link to="/join_team" className="text-green-500"> here </Link> to change your team.</div>
