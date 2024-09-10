@@ -4,11 +4,10 @@ import xero_logo from './xero_logo.png';
 import devcomm from './devcomm.png';
 import { authContext } from "../../contexts/authcontext";
 import { useContext, useState } from "react";
-import { motion } from "framer-motion";
 import { teamContext } from "../../contexts/teamcontexts";
 
 const Header = () => {
-    const {user, login, logout} = useContext(authContext);
+    const {user, logout} = useContext(authContext);
     const {team} = useContext(teamContext);
     const [ham, setham] = useState(false);
     return (
@@ -71,7 +70,7 @@ const Header = () => {
                     </Link>) : 
                     (   
                         <div onClick={() => {logout(); console.log("ddd")}}>
-                        <Button text="Logout" text_size="text-[20px]" border_width="p-[1px]" width="w-[140px]"/>
+                        <Button text="Logout" text_size="text-[20px]" border_width="p-[1px]" width="w-[120px]"/>
                         </div>
                     )}
                 </div>
@@ -82,7 +81,7 @@ const Header = () => {
                 </div>
                 {team && <div className="mx-8 flex items-center">
                     <Link to="/ques/1" >
-                        <Button text="Arena" text_size="text-[20px]" border_width="p-[1px]" width="w-[140px]"/>
+                        <Button text="Arena" text_size="text-[20px]" border_width="p-[1px]" width="w-[120px]"/>
                     </Link>
                 </div>}
         </div>
