@@ -141,10 +141,10 @@ const Createteam = () => {
                 </div></>) : 
                 (<>
                 <div className="text-[30px]">You are already a part of a team.</div>
-                <div>Click<span className="hover:cursor-pointer text-green-500"
+                <div>Click<span className="hover:cursor-pointer hover:bg-gray-900 text-green-300"
                 onClick={handle_create_new_team}>&nbsp;here&nbsp;
                     </span>to leave your current team and create a new one</div>
-                <div >Click <Link to="/join_team" className="text-green-500"> here </Link> to change your team.</div>
+                <div >Click <Link to="/join_team" className="hover:bg-gray-900 text-green-300"> here </Link> to change your team.</div>
                 <div className="bg-black m-10 font-cus2 text-[40px] flex justify-center items-center" 
                 dangerouslySetInnerHTML={{ __html: res}}
                 >
