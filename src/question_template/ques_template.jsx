@@ -88,9 +88,9 @@ const Ques_temp = () => {
                 >
                     <Loading />
             </div> }
-            {can_move && <div className="flex justify-center" onClick={() => {
+            {/* {can_move && <div className="flex justify-center" onClick={() => {
                 Nav(`/ques`);
-            }}><Button text="Move to Next" width="w-[250px]" height="h-[40px]" text_size="text-[30px]" border_width="p-[1px] "/></div>}
+            }}><Button text="Move to Next" width="w-[250px]" height="h-[40px]" text_size="text-[30px]" border_width="p-[1px] "/></div>} */}
             </div>
         </div>
     )
