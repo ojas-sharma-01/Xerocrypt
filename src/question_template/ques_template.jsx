@@ -3,7 +3,7 @@ import Header from "../components/header/header";
 import Button from "../components/button_cus/button_cus";
 import { setDoc, doc, getDoc } from "firebase/firestore";
 import { teamContext } from "../contexts/teamcontexts";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import questions from "./questions";
 import Loading from "../components/loader/loading_";
 import { DB } from "../firebutil/firestore/firestoredb";
@@ -15,11 +15,11 @@ const Ques_temp = () => {
     const Nav = useNavigate();
     const [res, setres] = useState('');
     const [ans, setans] = useState('');
-    const [can_move, set_can_move] = useState(false);
+    // const [can_move, set_can_move] = useState(false);
 
     const check_ans = async () => {
         setloading(true);
-        set_can_move(false);
+        // set_can_move(false);
         try {
             const ret = await fetch(`https://xero-back.vercel.app/check_ans?q_no=${leve+1}&ans=${ans}`);
             const data = await ret.json();
@@ -38,8 +38,8 @@ const Ques_temp = () => {
                     level: Math.max(curr, leve+1)
                 }, {merge: true});
                 
-                change_level(leve+1);
-                set_can_move(true);
+                (leve < 9) ? change_level(leve+1) : change_level(leve);
+                // set_can_move(true);
             }
             else {
                 setloading(false);
@@ -55,11 +55,10 @@ const Ques_temp = () => {
 
     useEffect(() => {
         if (team === null) { Nav('/') } 
-        set_can_move(false);
+        // set_can_move(false);
         setloading(false)
         setans('');
         setres('');
-        console.log(leve)
     }, [team, Nav])
 
     return (
