@@ -111,8 +111,7 @@ const Login = () => {
                 <div className="m-8 text-[20px]" onClick={handlelogin}>
                     <Button text="Login" border_width = "p-[1px]" height="h-[50px]" width="w-[100px]"/>
                 </div>
-                <div className="text-[20px] font-cus2">Click 
-                    <Link to="/register" className="hover:bg-gray-900 text-green-300">here</Link> to create an account.
+                <div className="text-[20px] font-cus2">Click <Link to="/register" className="hover:bg-gray-900 text-green-300">here</Link> to create an account.
                 </div>
                 <div className="bg-black m-10 font-cus2 text-[40px] flex justify-center items-center" 
                 dangerouslySetInnerHTML={{ __html: res}}
