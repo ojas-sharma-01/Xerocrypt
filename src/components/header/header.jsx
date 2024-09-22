@@ -68,13 +68,13 @@ const Header = () => {
                                 <Button text="Leaderboard" text_size="text-[20px]" border_width="p-[1px]" width="w-[140px]" height="h-[40px]" />
                             </Link>
                         </div>
-                        {team &&  (
+                        {/* {team &&  (
                         <div className="m-6">
                             <Link to="/ques/1">
                                 <Button text="Arena" text_size="text-[20px]" border_width="p-[1px]" width="w-[140px]" height="h-[40px]"/>
                             </Link>
                         </div>)
-                        }
+                        } */}
                         </div>
                     </motion.div>
                 }
@@ -110,13 +110,13 @@ const Header = () => {
                         <Button text="Leaderboard" text_size="text-[20px]" border_width="p-[1px]" width="w-[140px]" />
                     </Link>
                 </div>
-                {team && (
+                {/* {team && (
                     <div className="mx-8 flex items-center">
                         <Link to="/ques">
                             <Button text="Arena" text_size="text-[20px]" border_width="p-[1px]" width="w-[120px]" />
                         </Link>
                     </div>
-                )}
+                )} */}
             </div>
         </>
     );
