@@ -15,7 +15,7 @@ const Createteam = () => {
     const [res, setres] = useState('');
     const {user, uname} = useContext(authContext);
     const {team, changeTeam, change_team_name, change_level} = useContext(teamContext);
-    const [cap, setcap] = useState('');
+    const [cap, setcap] = useState(null);
     const [tname, settname] = useState('');
     const handle_cap = async () => {
         const ret = await fetch('https://xero-back.vercel.app/get_captcha');
@@ -122,7 +122,10 @@ const Createteam = () => {
             <Header />
             {user ? <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto w-fit h-full">
                 {(team === null) ? 
-                (<><div className="text-[40px] md:text-[70px] font-cus2 text-green-400"> Create your Team. </div>
+                (cap === null ? <>
+                    <div>
+                        Waiting for Captcha.
+                    </div></> : <><div className="text-[40px] md:text-[70px] font-cus2 text-green-400"> Create your Team. </div>
                 <div>
                     <div className="text-[30px] font-cus2 text-zinc-400 mb-2"> Your Team Id : {cap} </div>
                     <div className="text-[20px] text-white w-full font-cus2 mt-2">
