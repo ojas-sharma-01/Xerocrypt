@@ -97,7 +97,7 @@ const Signup = () => {
                     <Button text="Register" border_width = "p-[1px]" height="h-[50px]" width="w-[100px]"/>
                 </div>
                 <div className="text-[20px] font-cus2">Click 
-                    <Link to="/login" className="hover:bg-gray-900 text-green-300"> here</Link> to login.
+                    <Link to="/login" className="hover:bg-gray-900 text-green-300">here</Link> to login.
                 </div>
                 <div className="bg-black m-10 font-cus2 text-[40px] flex justify-center items-center" 
                 dangerouslySetInnerHTML={{ __html: res}}
