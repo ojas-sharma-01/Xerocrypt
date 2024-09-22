@@ -4,7 +4,7 @@ import { DateTime } from "luxon";
 const clockContext = createContext();
 
 const ClockProvider = ({ children }) => {
-    const targetDate = DateTime.local(2024, 9, 7, 0, 0).setZone('Asia/Kolkata'); 
+    const targetDate = DateTime.local(2024, 9, 28, 0, 0).setZone('Asia/Kolkata'); 
     
     const calculateTimeDifference = () => {
         const now = DateTime.now().setZone('Asia/Kolkata');
