@@ -26,7 +26,7 @@ function App() {
             <Router>
               <div className="App bg-black">
                 <Routes>
-                  <Route path='/ques/:q_no' element={< Ques_temp />} />
+                  <Route path='/ques' element={< Ques_temp />} />
                   <Route path='/login' element={<Login />} />
                   <Route path='/register' element={<Signup />} />
                   <Route path='/your_team' element={<YourTeam />} />

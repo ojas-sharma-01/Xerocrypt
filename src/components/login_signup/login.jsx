@@ -13,7 +13,7 @@ const auth  = getAuth();
 const Login = () => {
     const {db} = useContext(DB);
     const [loading, setloading] = useState(false);
-    const { changeTeam, change_team_name } = useContext(teamContext);
+    const { changeTeam, change_team_name, change_level } = useContext(teamContext);
     const {user, login, changename} = useContext(authContext);
     const [cred, setcred] = useState({email:"", password:""});
     const [res, setres] = useState();
@@ -46,6 +46,7 @@ const Login = () => {
                     const get_team_name = await getDoc(doc(db, 'Teams', get_team.data().team_id));
                     changeTeam(get_team.data().team_id)
                     change_team_name(get_team_name.data().name)
+                    change_level(get_team_name.data().level);
                 }
                 setloading(false);
 

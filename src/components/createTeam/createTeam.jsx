@@ -14,7 +14,7 @@ const Createteam = () => {
     const [loading, setloading] = useState(false);
     const [res, setres] = useState('');
     const {user, uname} = useContext(authContext);
-    const {team, changeTeam, change_team_name} = useContext(teamContext);
+    const {team, changeTeam, change_team_name, change_level} = useContext(teamContext);
     const [cap, setcap] = useState('');
     const [tname, settname] = useState('');
     const handle_cap = async () => {
@@ -56,6 +56,7 @@ const Createteam = () => {
 
             changeTeam(cap);
             change_team_name(tname);
+            change_level(0);
             setloading(false)
             setres(`<p style="color:green;">Team Created</p>`)
         }

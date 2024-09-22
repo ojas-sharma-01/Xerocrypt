@@ -11,9 +11,7 @@ import { DB } from "../firebutil/firestore/firestoredb";
 const Ques_temp = () => {
     const {db} = useContext(DB);
     const [loading, setloading] = useState(false);
-    var { q_no } = useParams();
-    q_no = parseInt(q_no);
-    const { team } = useContext(teamContext);
+    const { team, leve, change_level } = useContext(teamContext);
     const Nav = useNavigate();
     const [res, setres] = useState('');
     const [ans, setans] = useState('');
@@ -23,7 +21,7 @@ const Ques_temp = () => {
         setloading(true);
         set_can_move(false);
         try {
-            const ret = await fetch(`https://xero-back.vercel.app/check_ans?q_no=${q_no}&ans=${ans}`);
+            const ret = await fetch(`https://xero-back.vercel.app/check_ans?q_no=${leve+1}&ans=${ans}`);
             const data = await ret.json();
 
             if (data.type === 'error') {
@@ -37,9 +35,10 @@ const Ques_temp = () => {
                 setres(`<p style="color:green;"> Correct. </p>`);
                 const curr = (await getDoc(doc(db, 'Teams', team))).data().level;
                 await setDoc(doc(db, 'Teams', team), {
-                    level: Math.max(curr, q_no)
+                    level: Math.max(curr, leve+1)
                 }, {merge: true});
                 
+                change_level(leve+1);
                 set_can_move(true);
             }
             else {
@@ -55,22 +54,23 @@ const Ques_temp = () => {
     }
 
     useEffect(() => {
-        if (team === null) { console.log('hkhl'); Nav('/') } 
+        if (team === null) { Nav('/') } 
         set_can_move(false);
         setloading(false)
         setans('');
         setres('');
-    }, [q_no, team, Nav])
+        console.log(leve)
+    }, [team, Nav])
 
     return (
         <div className="bg-black text-white h-screen flex flex-col max-w-[100%] overflow-x-hidden">
             <Header />
             <div className="text-[60px] flex justify-center mt-10 font-cus2">
-                <div className="w-[80%] flex justify-start">{ q_no } .</div>
+                <div className="w-[80%] flex justify-start">{ leve+1 } .</div>
             </div>
             <div className="flex justify-center min-h-[30%]">
                 <div className="text-[30px] m-10 justify-start flex w-[80%]">
-                    {questions[q_no-1].question}
+                    {questions[leve].question}
                 </div>
             </div>
             <div className="flex flex-col w-[70%] md:w-[30%] items-center self-center">
@@ -89,7 +89,7 @@ const Ques_temp = () => {
                     <Loading />
             </div> }
             {can_move && <div className="flex justify-center" onClick={() => {
-                Nav(`/ques/${q_no+1}`);
+                Nav(`/ques`);
             }}><Button text="Move to Next" width="w-[250px]" height="h-[40px]" text_size="text-[30px]" border_width="p-[1px] "/></div>}
             </div>
         </div>

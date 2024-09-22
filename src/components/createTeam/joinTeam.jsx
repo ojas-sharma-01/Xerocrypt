@@ -14,7 +14,7 @@ const Jointeam = () => {
     const [res, setres] = useState('');
     const [team_id, setteam_id] = useState('');
     const {user, uname} = useContext(authContext);
-    const {team, changeTeam, change_team_name} = useContext(teamContext);
+    const {team, changeTeam, change_team_name, change_level} = useContext(teamContext);
     const handle_teamchange = async () => {
         setloading(true);
         try {
@@ -81,6 +81,7 @@ const Jointeam = () => {
 
             changeTeam(team_id);
             change_team_name(get_team.data().name);
+            change_level(get_team.data().level);
             setloading(false)
             setres(`<p style="color:green;">Joined team with code ${team_id}</p>`)
         }

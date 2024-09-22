@@ -8,7 +8,7 @@ const authContext = createContext();
 const auth = getAuth();
 const AuthProvider = ({ children }) => {
     const {db} = useContext(DB);
-    const {changeTeam, change_team_name} = useContext(teamContext);
+    const {changeTeam, change_team_name, change_level} = useContext(teamContext);
     const [user, setuser] = useState(null);
     const [uname, setuname] = useState(null);
 
@@ -32,6 +32,7 @@ const AuthProvider = ({ children }) => {
                     if (d.data().team_id != null) {
                         const de = await getDoc(doc(db, 'Teams', d.data().team_id));
                         change_team_name(de.data().name);
+                        change_level(de.data().level);
                     }
                 }
             } catch (error) {
@@ -56,6 +57,7 @@ const AuthProvider = ({ children }) => {
         document.cookie = "token=; path=/; max-age=0";
         changeTeam(null);
         change_team_name(null);
+        change_level(0);
         signOut(auth).then(() => {
             console.log('User signed out successfully');
         }).catch((error) => {
