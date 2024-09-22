@@ -35,7 +35,7 @@ const Createteam = () => {
     const submit_team = async () => {
         setloading(true);
         try {
-            const q = await query(collection(db, 'Teams'), where('name', '==', tname.toUpperCase()));
+            const q = await query(collection(db, 'Teams'), where('name', '==', tname.toLowerCase()));
             const get = await getDocs(q);
             if (!get.empty) {
                 setloading(false)
@@ -45,7 +45,7 @@ const Createteam = () => {
 
             await setDoc(doc(db, 'Teams', cap), {
                 Teamid: cap,
-                name: tname,
+                name: tname.toLowerCase(),
                 members : [{id: user.uid, mname: uname, posn: 'leader'}],
                 level: 0
             });
