@@ -16,7 +16,7 @@ const TeamProvider = ({ children }) => {
     }
 
     const change_level = (lvl) => {
-        setlevel(lvl);
+        setlevel(Math.min(lvl,9));
     }
 
     return (
