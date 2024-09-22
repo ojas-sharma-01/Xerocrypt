@@ -55,7 +55,7 @@ const Ques_temp = () => {
     }
 
     useEffect(() => {
-        if (team === null) { Nav('/') } 
+        if (team === null) { console.log('hkhl'); Nav('/') } 
         set_can_move(false);
         setloading(false)
         setans('');
