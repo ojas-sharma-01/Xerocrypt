@@ -123,7 +123,7 @@ const Createteam = () => {
             {user ? <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto w-fit h-full">
                 {(team === null) ? 
                 (cap === null ? <>
-                    <div>
+                    <div className="text-[40px]">
                         Waiting for Captcha.
                     </div></> : <><div className="text-[40px] md:text-[70px] font-cus2 text-green-400"> Create your Team. </div>
                 <div>
