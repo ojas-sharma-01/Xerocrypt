@@ -33,6 +33,7 @@ const Createteam = () => {
     };
 
     const submit_team = async () => {
+        setres('');
         setloading(true);
         try {
             const q = await query(collection(db, 'Teams'), where('name', '==', tname.toLowerCase()));
@@ -67,6 +68,7 @@ const Createteam = () => {
     }
 
     const handle_create_new_team = async () => {
+        setres('');
         setloading(true)
         try {
             const q = await query(collection(db, 'Teams'), where('name', '==', tname));

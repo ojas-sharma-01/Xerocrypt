@@ -19,6 +19,7 @@ const Signup = () => {
     const Nav = useNavigate();
 
     const handlesignup = async (e) => {
+        setres('');
         setloading(true);
         createUserWithEmailAndPassword(auth, cred.email, cred.password)
         .then(async (usercred) => {

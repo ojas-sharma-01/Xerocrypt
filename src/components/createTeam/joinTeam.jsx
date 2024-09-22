@@ -16,6 +16,7 @@ const Jointeam = () => {
     const {user, uname} = useContext(authContext);
     const {team, changeTeam, change_team_name, change_level} = useContext(teamContext);
     const handle_teamchange = async () => {
+        setres('');
         setloading(true);
         try {
             const q = query(collection(db, 'Teams'), where('Teamid', '==', team_id))
