@@ -99,8 +99,8 @@ const Team = () => {
                         {guidelines.map((ele, index) => {
                             return (
                                 <div key={index} className="flex justify-evenly w-full h-full my-8 text-[30px]">
-                                    <div className="flex-[0.02] md:flex-[0.1] text-[60px]">*</div>
-                                    <div className="flex-[0.97] md:flex-[0.9] text-left">{ele.guideline}</div>
+                                    <div className="flex-[0.05] md:flex-[0.1] text-[60px]">*</div>
+                                    <div className="flex-[0.95] md:flex-[0.9] text-left">{ele.guideline}</div>
                                 </div>
                             )
                         })}
