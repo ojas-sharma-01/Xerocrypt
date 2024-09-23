@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { getFirestore, getDocs, query, orderBy, collection } from 'firebase/firestore';
+import { getFirestore, getDocs, query, orderBy, collection, limit } from 'firebase/firestore';
 import Header from '../header/header';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { DB } from '../../firebutil/firestore/firestoredb';
@@ -13,7 +13,7 @@ const Leaderb = () => {
     const bottomtrail = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     const getd = async () => {
         const get_entries = collection(db, "Teams");
-        const querys = query(get_entries, orderBy('level', "desc"));
+        const querys = query(get_entries, orderBy('level', "desc"), limit(no*10));
         const q = await getDocs(querys);
         var cnt = -1;
 
