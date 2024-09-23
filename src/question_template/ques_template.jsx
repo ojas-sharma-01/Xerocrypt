@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import Header from "../components/header/header";
 import Button from "../components/button_cus/button_cus";
-import { setDoc, doc, getDoc } from "firebase/firestore";
+import { setDoc, doc, getDoc, serverTimestamp } from "firebase/firestore";
 import { teamContext } from "../contexts/teamcontexts";
 import { useNavigate } from "react-router-dom";
 import questions from "./questions";
@@ -18,6 +18,7 @@ const Ques_temp = () => {
     // const [can_move, set_can_move] = useState(false);
 
     const check_ans = async () => {
+        setres('');
         setloading(true);
         // set_can_move(false);
         try {
@@ -35,7 +36,8 @@ const Ques_temp = () => {
                 setres(`<p style="color:green;"> Correct. </p>`);
                 const curr = (await getDoc(doc(db, 'Teams', team))).data().level;
                 await setDoc(doc(db, 'Teams', team), {
-                    level: Math.max(curr, leve+1)
+                    level: Math.max(curr, leve+1),
+                    lastCorrectAnswerAt: serverTimestamp()
                 }, {merge: true});
                 
                 (leve < 9) ? change_level(leve+1) : change_level(leve);

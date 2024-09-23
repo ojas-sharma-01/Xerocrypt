@@ -48,7 +48,8 @@ const Createteam = () => {
                 Teamid: cap,
                 name: tname.toLowerCase(),
                 members : [{id: user.uid, mname: uname, posn: 'leader'}],
-                level: 0
+                level: 0,
+                lastCorrectAnswerAt: 0,
             });
 
             await updateDoc(doc(db, 'Users', user.uid), {
@@ -124,7 +125,7 @@ const Createteam = () => {
                 {(team === null) ? 
                 (cap === null ? <>
                     <div className="text-[40px]">
-                        Waiting for Captcha.
+                        <Loading />
                     </div></> : <><div className="text-[40px] md:text-[70px] font-cus2 text-green-400"> Create your Team. </div>
                 <div>
                     <div className="text-[30px] font-cus2 text-zinc-400 mb-2"> Your Team Id : {cap} </div>

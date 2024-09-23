@@ -7,6 +7,7 @@ import Header from "../header/header";
 import { authContext } from "../../contexts/authcontext";
 import { clockContext } from "../../contexts/clockContext";
 import yhill from './YHills-logo-main.webp'
+import discord from './discord.png'
 
 const guidelines = [{
                     guideline: "The hunt will last for 24 hours, 28 Sept 12PM - 29 Sept 12PM."
@@ -22,7 +23,7 @@ const guidelines = [{
                     it will be considered INCORRECT."
                 },
                 {
-                    guideline: "Hints will be posted on this discord server (insert link)."
+                    guideline: "Hints will be posted \n on this discord server \n https://disco rd.gg/UuJdGK9GkE."
                 }, 
                 {
                     guideline: "Laptop may be necessary to solve some of the questions, so be prepared." 
@@ -65,10 +66,13 @@ const Team = () => {
         //  >
         <div className="bg-black min-h-screen h-screen md:h-auto justify-center items-center relative flex flex-col w-[100%] text-white overflow-x-hidden">
             <Header />
+            {/* <div className="fixed top-[10%] text-white text-[30px] right-[1rem]">
+                <a href="https://discord.gg/UuJdGK9GkE." target="__blank"> <img className="h-[50px]" src={discord}/> </a>
+            </div> */}
             <motion.div
                   initial={{ width: '60px' }}
                   whileHover={{ width: '120px' }} 
-                  className="overflow-hidden text-white fixed top-[30%] left-[-1.25rem] md:left-[-1rem] my-[10px]"
+                  className="overflow-hidden text-white fixed top-[20%] md:top-[30%] left-[-1.25rem] md:left-[-1rem] my-[10px]"
                   onClick={() => {setmodal(!modal)}} 
                >
                     <Button text="i" width="w-[80%] md:w-[100%]" height="h-[100%]" text_size="text-[20px] md:text-[40px]" border_width="p-[1px]" />
@@ -78,9 +82,9 @@ const Team = () => {
                   whileHover={{ width: '120px' }} 
                   className="overflow-hidden text-white fixed top-[35%] md:top-[40%] left-[-1.25rem] md:left-[-1rem] my-[10px]"
                >
-                    <Button text="sponsi" width="w-[80%] md:w-[100%]" height="h-[100%]" text_size="text-[20px] md:text-[40px]" border_width="p-[1px]" />
-            </motion.div>
-            <motion.div
+                    <Button text="discord" width="w-[80%] md:w-[100%]" height="h-[100%]" text_size="text-[20px] md:text-[40px]" border_width="p-[1px]" />
+            </motion.div> */}
+            {/* <motion.div
                   initial={{ width: '60px' }}
                   whileHover={{ width: '120px' }} 
                   className="overflow-hidden text-white fixed top-[40%] md:top-[50%] left-[-1.25rem] md:left-[-1rem] my-[10px]"
@@ -98,9 +102,9 @@ const Team = () => {
                         <div className="scroll_hide m-auto w-[90%] h-[150%] flex flex-col justify-evenly overflow-auto font-cus2">
                         {guidelines.map((ele, index) => {
                             return (
-                                <div key={index} className="flex justify-evenly w-full h-full my-8 text-[30px]">
-                                    <div className="flex-[0.05] md:flex-[0.1] text-[60px]">*</div>
-                                    <div className="flex-[0.95] md:flex-[0.9] text-left">{ele.guideline}</div>
+                                <div key={index} className="flex justify-evenly w-full my-8 text-[30px]">
+                                    <div className="flex-[0.1] md:flex-[0.1] text-[60px] pb-10">*</div>
+                                    <div className="flex-[0.9] md:flex-[0.9] text-left pl-4">{ele.guideline}</div>
                                 </div>
                             )
                         })}
@@ -108,7 +112,7 @@ const Team = () => {
                         </div>
                     </div>
             </div>}
-            <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto bg-black h-[80%] md:h-[800px] overflow-x-hidden">
+            <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto bg-black h-[90%] md:h-[800px] overflow-x-hidden">
                 <div className="text-[20px] md:text-[30px] font-cus2">
                     Official Education Partner
                     <p className="flex items-center justify-center"><a href="https://yhills.com/" target="__blank"><img className="h-[50px]" src={yhill}/></a></p>
@@ -128,6 +132,11 @@ const Team = () => {
                         <Button className="mx-10" text_size="text-[25px] md:text-[40px]" text="JOIN" width="w-[110px] md:w-[170px]" 
                         height="100" border_width="p-[1px]"/>
                     </Link>
+                </div>
+                <div className="md:hidden">
+                    <Link to="/register">
+                    <Button text="Register" text_size="text-[25px] md:text-[40px]" width="w-[110px] md:w-[170px]" 
+                    height="100" border_width="p-[1px]"/></Link>
                 </div>
             </div>
         </div>

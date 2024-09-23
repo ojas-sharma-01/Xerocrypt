@@ -13,7 +13,7 @@ const Leaderb = () => {
     const bottomtrail = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     const getd = async () => {
         const get_entries = collection(db, "Teams");
-        const querys = query(get_entries, orderBy('level', "desc"), limit(no*10));
+        const querys = query(get_entries, orderBy('level', "desc"), orderBy('lastCorrectAnswerAt', 'asc'), limit(no*10));
         const q = await getDocs(querys);
         var cnt = -1;
 
