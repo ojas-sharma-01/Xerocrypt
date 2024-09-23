@@ -24,6 +24,7 @@ function App() {
       <Dbprovider>
       <TeamProvider>
         <AuthProvider>
+            <Analytics />
             <Router>
               <div className="App bg-black">
                 <Routes>
@@ -36,7 +37,6 @@ function App() {
                   <Route path="/" element={<Team />} />
                   <Route path='/leaderboard/:no' element={<Leaderb />} />
                   <Route path='*' element={<Four04 />} />
-                  <Analytics />
                 </Routes>
               </div>
             </Router>
