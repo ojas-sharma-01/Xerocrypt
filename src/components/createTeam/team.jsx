@@ -9,23 +9,46 @@ import { clockContext } from "../../contexts/clockContext";
 import yhill from './YHills-logo-main.webp'
 
 const guidelines = [{
-                    guideline: "Lorem ipsum dolor sit, amet consectetur \
-                    adipisicing elit. Eum reiciendis veniam, eligendi blanditiis \
-                    porro similique voluptas a inventore ab repudiandae laudantium \
-                    eius enim, quia nam quas assumenda consectetur cupiditate pariatur?"
+                    guideline: "The hunt will last for 24 hours, 28 Sept 12PM - 29 Sept 12PM."
                 },
                 {
-                    guideline: "Lorem ipsum dolor sit, amet consectetur \
-                    adipisicing elit. Eum reiciendis veniam, eligendi blanditiis \
-                    porro similique voluptas a inventore ab repudiandae laudantium \
-                    eius enim, quia nam quas assumenda consectetur cupiditate pariatur?"
+                    guideline: "The answers are case sensitive and can contain special letters/symbols \
+                     but are one word only. Eg : if the answer is ''ye is the goat' \
+                     then the correct submission would be 'yeisthegoat'."
                 },
                 {
-                    guideline: "Lorem ipsum dolor sit, amet consectetur \
-                    adipisicing elit. Eum reiciendis veniam, eligendi blanditiis \
-                    porro similique voluptas a inventore ab repudiandae laudantium \
-                    eius enim, quia nam quas assumenda consectetur cupiditate pariatur?"
-                },];
+                    guideline: "A minor typo will result in an incorrect answer, so be doubly \
+                    sure of what you enter. For example, if the answer is 'nsut' and you enter 'nsit',\
+                    it will be considered INCORRECT."
+                },
+                {
+                    guideline: "Hints will be posted on this discord server (insert link)."
+                }, 
+                {
+                    guideline: "Laptop may be necessary to solve some of the questions, so be prepared." 
+                },
+                {
+                    guideline: "Spamming the admins for hints is frowned upon." 
+                },
+                {
+                    guideline: "The use of any unfair means will be dealt with strictly and your team shall be permanently disqualified from participating." 
+                },
+                {
+                    guideline: "There is no restriction on the number of times you can enter an answer,\
+                     so feel free to guess, although random answers are highly unlikely to work." 
+                },
+                {
+                    guideline: "If you feel you're stuck at any point it's best to clear your head and start thinking from scratch." 
+                },
+                {
+                    guideline: "Leads will be open from time to time for 20 mins and admins for that window will be assigned each time, you can ask them if you are going in the correct direction or not and they shall reply you with a yes or no." 
+                },
+                {
+                    guideline: "Asking other participants for solutions or any help will be considered cheating and lead to disqualification if reported. "
+                },
+                {
+                    guideline: "Using the internet is allowed, as this hunt cannot be solved without it."
+                }];
 
 const Team = () => {
     const [modal, setmodal] = useState(false);
@@ -34,13 +57,13 @@ const Team = () => {
 
 
     return (
-        <motion.div
-            // initial={{ opacity: 0 }}
-            // animate={{ opacity: 1 }}
-            // transition={{ duration: 1 }}
-            className="relative flex flex-col items-center justify-center bg-black h-screen font-mono w-screen"
-         >
-        <div className="bg-black h-screen flex flex-col w-screen text-white">
+        // <motion.div
+        //     // initial={{ opacity: 0 }}
+        //     // animate={{ opacity: 1 }}
+        //     // transition={{ duration: 1 }}
+        //     className="relative flex flex-col items-center justify-center bg-black h-screen font-mono w-screen"
+        //  >
+        <div className="bg-black min-h-screen h-screen md:h-auto justify-center items-center relative flex flex-col w-screen text-white">
             <Header />
             <motion.div
                   initial={{ width: '60px' }}
@@ -72,11 +95,11 @@ const Team = () => {
                         </div>
                         <div className="m-10 mt-4 text-[30px] md:text-[50px] font-cus2 border-b-2 border-white w-fit
                         md:w-[80%]"> Guidelines </div>
-                        <div className="m-auto w-[90%] h-[70%] flex flex-col justify-evenly overflow-auto">
+                        <div className="m-auto w-[90%] h-[150%] flex flex-col justify-evenly overflow-auto">
                         {guidelines.map((ele, index) => {
                             return (
-                                <div key={index} className="flex justify-evenly w-full">
-                                    <div className="flex-[0.05] md:flex-[0.15]">{index+1}</div>
+                                <div key={index} className="flex justify-evenly w-full h-full my-8 text-[30px]">
+                                    <div className="flex-[0.05] md:flex-[0.15]">*</div>
                                     <div className="flex-[0.95] md:flex-[0.85]">{ele.guideline}</div>
                                 </div>
                             )
@@ -84,7 +107,7 @@ const Team = () => {
                         </div>
                     </div>
             </div>}
-            <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto bg-black w-full h-[90%]">
+            <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto bg-black w-full h-[80%] md:h-[800px]">
                 <div className="text-[20px] md:text-[30px] font-cus2">
                     Official Education Partner
                     <p className="flex items-center justify-center"><a href="https://yhills.com/" target="__blank"><img className="h-[50px]" src={yhill}/></a></p>
@@ -107,7 +130,7 @@ const Team = () => {
                 </div>
             </div>
         </div>
-        </motion.div>
+        // </motion.div>
     )
 }
 

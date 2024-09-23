@@ -15,4 +15,14 @@
     font-family: 'Cyber';
     src: url(cyber.otf) format('opentype');
 }
+
+.example::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .example {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
   
