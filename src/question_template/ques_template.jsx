@@ -40,7 +40,7 @@ const Ques_temp = () => {
                     lastCorrectAnswerAt: serverTimestamp()
                 }, {merge: true});
                 
-                (leve < 9) ? change_level(leve+1) : change_level(leve);
+                change_level(leve+1);
                 // set_can_move(true);
             }
             else {
@@ -66,7 +66,14 @@ const Ques_temp = () => {
     return (
         <div className="bg-black text-white h-screen flex flex-col max-w-[100%] overflow-x-hidden">
             <Header />
-            <div className="text-[60px] flex justify-center mt-10 font-cus2">
+            {leve === 10 ? 
+            <>
+                <div className="text-[40px] text-green-400">
+                    YAY .
+                </div>
+                </>:
+                <>
+                <div className="text-[60px] flex justify-center mt-10 font-cus2">
                 <div className="w-[80%] flex justify-start">{ leve+1 } .</div>
             </div>
             <div className="flex justify-center min-h-[30%]">
@@ -93,6 +100,7 @@ const Ques_temp = () => {
                 Nav(`/ques`);
             }}><Button text="Move to Next" width="w-[250px]" height="h-[40px]" text_size="text-[30px]" border_width="p-[1px] "/></div>} */}
             </div>
+                </>}
         </div>
     )
 }
