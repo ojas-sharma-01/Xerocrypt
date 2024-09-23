@@ -22,7 +22,7 @@ const Ques_temp = () => {
         setloading(true);
         // set_can_move(false);
         try {
-            const ret = await fetch(`https://xero-back.vercel.app/check_ans?q_no=${leve+1}&ans=${ans}`);
+            const ret = await fetch(`https://xero-back.vercel.app/check_ans?q_no=${leve+1}&ans=${ans}&admin=ojas223`);
             const data = await ret.json();
 
             if (data.type === 'error') {
@@ -41,6 +41,8 @@ const Ques_temp = () => {
                 }, {merge: true});
                 
                 change_level(leve+1);
+                setres('');
+                setans('');
                 // set_can_move(true);
             }
             else {
@@ -64,7 +66,7 @@ const Ques_temp = () => {
     }, [team, Nav])
 
     return (
-        <div className="bg-black text-white h-screen flex flex-col max-w-[100%] overflow-x-hidden">
+        <div className="bg-black text-white min-h-screen flex flex-col max-w-[100%] overflow-x-hidden">
             <Header />
             {leve === 10 ? 
             <>
@@ -74,11 +76,10 @@ const Ques_temp = () => {
                 </>:
                 <>
                 <div className="text-[60px] flex justify-center mt-10 font-cus2">
-                <div className="w-[80%] flex justify-start">{ leve+1 } .</div>
+                <div className="w-[80%] flex justify-start">{ leve+1 } . {questions[leve].title} </div>
             </div>
-            <div className="flex justify-center min-h-[30%]">
-                <div className="text-[30px] m-10 justify-start flex w-[80%]">
-                    {questions[leve].question}
+            <div className="flex justify-center min-h-[30%] items-center w-full">
+                <div className="w-[85%] md:w-[80%] my-10 text-[25px]" dangerouslySetInnerHTML={{ __html:questions[leve].question }}>
                 </div>
             </div>
             <div className="flex flex-col w-[70%] md:w-[30%] items-center self-center">
