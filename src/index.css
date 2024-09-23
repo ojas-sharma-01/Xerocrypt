@@ -16,13 +16,12 @@
     src: url(cyber.otf) format('opentype');
 }
 
-.example::-webkit-scrollbar {
+.scroll_hide::-webkit-scrollbar {
     display: none;
   }
   
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .example {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+  .scroll_hide {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
   }
   

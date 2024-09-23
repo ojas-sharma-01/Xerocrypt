@@ -63,7 +63,7 @@ const Team = () => {
         //     // transition={{ duration: 1 }}
         //     className="relative flex flex-col items-center justify-center bg-black h-screen font-mono w-screen"
         //  >
-        <div className="bg-black min-h-screen h-screen md:h-auto justify-center items-center relative flex flex-col w-screen text-white">
+        <div className="bg-black min-h-screen h-screen md:h-auto justify-center items-center relative flex flex-col w-[100%] text-white overflow-x-hidden">
             <Header />
             <motion.div
                   initial={{ width: '60px' }}
@@ -95,19 +95,20 @@ const Team = () => {
                         </div>
                         <div className="m-10 mt-4 text-[30px] md:text-[50px] font-cus2 border-b-2 border-white w-fit
                         md:w-[80%]"> Guidelines </div>
-                        <div className="m-auto w-[90%] h-[150%] flex flex-col justify-evenly overflow-auto">
+                        <div className="scroll_hide m-auto w-[90%] h-[150%] flex flex-col justify-evenly overflow-auto font-cus2">
                         {guidelines.map((ele, index) => {
                             return (
                                 <div key={index} className="flex justify-evenly w-full h-full my-8 text-[30px]">
-                                    <div className="flex-[0.05] md:flex-[0.15]">*</div>
-                                    <div className="flex-[0.95] md:flex-[0.85]">{ele.guideline}</div>
+                                    <div className="flex-[0.02] md:flex-[0.1] text-[60px]">*</div>
+                                    <div className="flex-[0.97] md:flex-[0.9] text-left">{ele.guideline}</div>
                                 </div>
                             )
                         })}
+                        <p className="text-green-400 text-[50px] mb-8 mt-[-20px]">GAME ON !!!</p>
                         </div>
                     </div>
             </div>}
-            <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto bg-black w-full h-[80%] md:h-[800px]">
+            <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto bg-black h-[80%] md:h-[800px] overflow-x-hidden">
                 <div className="text-[20px] md:text-[30px] font-cus2">
                     Official Education Partner
                     <p className="flex items-center justify-center"><a href="https://yhills.com/" target="__blank"><img className="h-[50px]" src={yhill}/></a></p>
