@@ -68,7 +68,7 @@ const Ques_temp = () => {
             <Header />
             {leve === 10 ? 
             <>
-                <div className="text-[40px] text-green-400">
+                <div className="text-[50px] text-green-400 m-auto font-cus2">
                     YAY .
                 </div>
                 </>:
