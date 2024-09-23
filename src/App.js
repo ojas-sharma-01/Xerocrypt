@@ -16,6 +16,7 @@ import Four04 from './components/404/four04.jsx';
 import Loading from './components/loader/loading_.jsx';
 import ClockProvider from './contexts/clockContext.jsx';
 import Dbprovider from './firebutil/firestore/firestoredb.js';
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
                   <Route path="/" element={<Team />} />
                   <Route path='/leaderboard/:no' element={<Leaderb />} />
                   <Route path='*' element={<Four04 />} />
+                  <Analytics />
                 </Routes>
               </div>
             </Router>
