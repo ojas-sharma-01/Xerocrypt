@@ -81,7 +81,8 @@ const Header = () => {
                 </AnimatePresence>
             </div>
 
-            <div className="hidden text-white text-right p-4 md:flex w-screen justify-end font-cus2 overflow-x-hidden">
+            <div className="hidden text-white text-right p-4 md:flex w-screen justify-end font-cus2 overflow-x-hidden
+            min-h-[70px]">
                 <div className="flex-1 flex justify-start text-[20px] items-center">
                     <Link to="/" className="flex items-center">
                         <img className="ml-10 w-[70px]" src={xero_logo} alt="xero_logo" />

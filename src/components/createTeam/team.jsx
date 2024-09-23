@@ -71,10 +71,10 @@ const Team = () => {
                     </div>
             </div>}
             <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto bg-black w-full h-full">
-                {/* <div className="text-[30px] font-cus2">
+                <div className="text-[20px] md:text-[30px] font-cus2">
                     Official Education Partner
                     <p className="flex items-center justify-center"><img className="h-[50px]" src={yhill}/></p>
-                </div> */}
+                </div>
                 <div className="text-[40px] md:text-[100px] lg:text-[150px] font-cus2 text-green-400">XERO.CRYPT 2.0</div>
                 <div className="text-[30px] md:text-[70px] font-cus2 text-green-400">
                     { clock === null ? 0 : clock.days }:{ clock === null ? 0 : clock.hours }:
