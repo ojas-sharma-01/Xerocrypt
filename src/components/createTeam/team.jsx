@@ -67,9 +67,9 @@ const Team = () => {
         //  >
         <div className="bg-black min-h-screen h-screen md:h-auto justify-center items-center relative flex flex-col w-[100%] text-white overflow-x-hidden">
             <Header />
-            {/* <div className="fixed top-[10%] text-white text-[30px] right-[1rem]">
-                <a href="https://discord.gg/UuJdGK9GkE." target="__blank"> <img className="h-[50px]" src={discord}/> </a>
-            </div> */}
+            <div className="absolute top-[8%] md:top-[10%] text-white text-[30px] right-[0.3rem] md:right-[2rem]">
+                <a href="https://discord.gg/UuJdGK9GkE." target="__blank"> <img className="h-[30px] md:h-[50px]" src={discord}/> </a>
+            </div>
             <motion.div
                   initial={{ width: '60px' }}
                   whileHover={{ width: '120px' }} 
