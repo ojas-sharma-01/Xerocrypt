@@ -45,11 +45,25 @@ const Team = () => {
             <motion.div
                   initial={{ width: '60px' }}
                   whileHover={{ width: '120px' }} 
-                  className="overflow-hidden text-white fixed top-[30%] left-[-1rem]"
+                  className="overflow-hidden text-white fixed top-[30%] left-[-1.25rem] md:left-[-1rem] my-[10px]"
                   onClick={() => {setmodal(!modal)}} 
                >
-                  <Button text="i" width="w-[80%] md:w-[100%]" height="h-[100%]" text_size="text-[20px] md:text-[40px]" border_width="p-[1px]" />
+                    <Button text="i" width="w-[80%] md:w-[100%]" height="h-[100%]" text_size="text-[20px] md:text-[40px]" border_width="p-[1px]" />
             </motion.div>
+            {/* <motion.div
+                  initial={{ width: '60px' }}
+                  whileHover={{ width: '120px' }} 
+                  className="overflow-hidden text-white fixed top-[35%] md:top-[40%] left-[-1.25rem] md:left-[-1rem] my-[10px]"
+               >
+                    <Button text="sponsi" width="w-[80%] md:w-[100%]" height="h-[100%]" text_size="text-[20px] md:text-[40px]" border_width="p-[1px]" />
+            </motion.div>
+            <motion.div
+                  initial={{ width: '60px' }}
+                  whileHover={{ width: '120px' }} 
+                  className="overflow-hidden text-white fixed top-[40%] md:top-[50%] left-[-1.25rem] md:left-[-1rem] my-[10px]"
+               >
+                    <Button text="team" width="w-[80%] md:w-[100%]" height="h-[100%]" text_size="text-[20px] md:text-[40px]" border_width="p-[1px]" />
+            </motion.div> */}
             {modal && <div className="fixed inset-0 z-[1] flex justify-center items-center">
                     <div className="absolute top-[10%] left-[10%] h-[80%] w-[80%] bg-slate-900 bg-opacity-95 flex flex-col items-center">
                         <div className="absolute w-fit top-0 right-0 m-2 text-[40px] mr-4
@@ -70,13 +84,13 @@ const Team = () => {
                         </div>
                     </div>
             </div>}
-            <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto bg-black w-full h-full">
+            <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto bg-black w-full h-[90%]">
                 <div className="text-[20px] md:text-[30px] font-cus2">
                     Official Education Partner
                     <p className="flex items-center justify-center"><img className="h-[50px]" src={yhill}/></p>
                 </div>
                 <div className="text-[40px] md:text-[100px] lg:text-[150px] font-cus2 text-green-400">XERO.CRYPT 2.0</div>
-                <div className="text-[30px] md:text-[70px] font-cus2 text-green-400">
+                <div className="text-[50px] md:text-[70px] font-cus2 text-green-400">
                     { clock === null ? 0 : clock.days }:{ clock === null ? 0 : clock.hours }:
                     { clock === null ? 0 : clock.minutes}:{ clock === null ? 0 : clock.seconds }
                 </div>
