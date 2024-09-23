@@ -79,7 +79,7 @@ const Ques_temp = () => {
                 <div className="w-[80%] flex justify-start">{ leve+1 } . {questions[leve].title} </div>
             </div>
             <div className="flex justify-center min-h-[30%] items-center w-full">
-                <div className="w-[85%] md:w-[80%] my-10 text-[25px]" dangerouslySetInnerHTML={{ __html:questions[leve].question }}>
+                <div className="w-[85%] md:w-[80%] my-10 text-[25px] text-left" dangerouslySetInnerHTML={{ __html:questions[leve].question }}>
                 </div>
             </div>
             <div className="flex flex-col w-[70%] md:w-[30%] items-center self-center">
