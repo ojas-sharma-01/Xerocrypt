@@ -104,7 +104,7 @@ const Team = () => {
                                 </div>
                             )
                         })}
-                        <p className="text-green-400 text-[50px] mb-8 mt-[-20px]">GAME ON !!!</p>
+                        <p className="text-green-400 text-[30px] md:text-[50px] mb-8 mt-[-20px]">GAME ON !!!</p>
                         </div>
                     </div>
             </div>}
