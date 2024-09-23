@@ -8,7 +8,7 @@ import { authContext } from "../../contexts/authcontext";
 import { clockContext } from "../../contexts/clockContext";
 import yhill from './YHills-logo-main.webp'
 import discord from './discord.png'
-
+import '../../index.css';
 const guidelines = [{
                     guideline: "The hunt will last for 24 hours, 28 Sept 12PM - 29 Sept 12PM."
                 },
@@ -23,7 +23,8 @@ const guidelines = [{
                     it will be considered INCORRECT."
                 },
                 {
-                    guideline: "Hints will be posted \n on this discord server \n https://disco rd.gg/UuJdGK9GkE."
+                    guideline: `<p>Hints will be posted \n on this discord server \n 
+                    <a target="__blank" class="hov" href="https://discord.gg/UuJdGK9GkE">LINK</a> .</p>`
                 }, 
                 {
                     guideline: "Laptop may be necessary to solve some of the questions, so be prepared." 
@@ -104,7 +105,7 @@ const Team = () => {
                             return (
                                 <div key={index} className="flex justify-evenly w-full my-8 text-[30px]">
                                     <div className="flex-[0.1] md:flex-[0.1] text-[60px] pb-10">*</div>
-                                    <div className="flex-[0.9] md:flex-[0.9] text-left pl-4">{ele.guideline}</div>
+                                    <div className="flex-[0.9] md:flex-[0.9] text-left pl-4" dangerouslySetInnerHTML={{__html:ele.guideline}}></div>
                                 </div>
                             )
                         })}

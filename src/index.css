@@ -20,8 +20,17 @@
     display: none;
   }
   
-  .scroll_hide {
+.scroll_hide {
     -ms-overflow-style: none; 
     scrollbar-width: none; 
-  }
+}
+
+.hov {
+    color: green;
+}
+
+.hov:hover{
+    color: white;
+    text-decoration: none;
+}
   
