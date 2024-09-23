@@ -59,7 +59,7 @@ const Signup = () => {
         <div className="bg-black max-w-[100%] justify-center items-center w-screen flex flex-col text-white overflow-x-hidden">
             <Header />
             <div className="h-screen flex flex-col items-center">
-                <div className="my-20 font-cus2 text-[50px]">Signup</div>
+                <div className="my-20 font-cus2 text-[50px]">Signup<p className="text-[20px] text-green-500">* USE NSUT ID ONLY *</p></div>
                 <div className="flex flex-col justify-evenly items-center h-[30%] text-[20px]">
                     <div>
                         <input type="email" value={cred.email} 

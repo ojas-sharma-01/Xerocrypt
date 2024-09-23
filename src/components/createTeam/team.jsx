@@ -87,7 +87,7 @@ const Team = () => {
             <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto bg-black w-full h-[90%]">
                 <div className="text-[20px] md:text-[30px] font-cus2">
                     Official Education Partner
-                    <p className="flex items-center justify-center"><img className="h-[50px]" src={yhill}/></p>
+                    <p className="flex items-center justify-center"><a href="https://yhills.com/" target="__blank"><img className="h-[50px]" src={yhill}/></a></p>
                 </div>
                 <div className="text-[40px] md:text-[100px] lg:text-[150px] font-cus2 text-green-400">XERO.CRYPT 2.0</div>
                 <div className="text-[50px] md:text-[70px] font-cus2 text-green-400">
