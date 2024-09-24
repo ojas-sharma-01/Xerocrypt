@@ -13,7 +13,7 @@ const guidelines = [{
                     guideline: "The hunt will last for 24 hours, 28 Sept 12PM - 29 Sept 12PM."
                 },
                 {
-                    guideline: "All answers are in lower case and can contain special letters/symbols \
+                    guideline: "All answers should be in lower case and can contain special letters/symbols \
                      but are one word only. Eg : if the answer is ''ye is the goat' \
                      then the correct submission would be 'yeisthegoat'."
                 },
