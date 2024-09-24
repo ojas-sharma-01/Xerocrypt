@@ -17,18 +17,21 @@ const Createteam = () => {
     const {team, changeTeam, change_team_name, change_level} = useContext(teamContext);
     const [cap, setcap] = useState(null);
     const [tname, settname] = useState('');
+    
     const handle_cap = async () => {
         const ret = await fetch('https://xero-back.vercel.app/get_captcha');
         const data = await ret.json();
-        if (data.type !== 'error') {
+        if (data.type !== 'error' && data.type !== 'error1') {
             setcap(data.message);
         }
-        else if (data.type === 'error1') {
-            setres(`<p style="color:red;">Error occured. Try again.</p>`);
+        else if (data.type === 'error') {
+            setcap('err');
+            setres(`<p style="color:red;">Too many requests. Try again in 15 mins.</p>`);        
         }
         
         else {
-            setres(`<p style="color:red;">Too many requests from this IP. try again in 15 mins.</p>`);
+            setcap('err');
+            setres(`<p style="color:red;">Error occured. please try again later.</p>`);
         }
     };
 
@@ -113,7 +116,7 @@ const Createteam = () => {
     };
 
     useEffect(() => {
-        if (team === null) handle_cap();
+        if (team === null && user !== null) handle_cap();
     }, [team]);
 
 
@@ -132,7 +135,7 @@ const Createteam = () => {
                     <div className="text-[40px]">
                         <div className="w-[120px] h-auto"><Loading /></div>
                     </div></> : <><div className="text-[40px] md:text-[70px] font-cus2 text-green-400"> Create your Team. </div>
-                <div>
+                <div className={`${cap === 'err' ? 'hidden' : ''}`}>
                     <div className="text-[30px] font-cus2 text-zinc-400 mb-2"> Your Team Id : {cap} </div>
                     <div className="text-[20px] text-white w-full font-cus2 mt-2">
                         <label className="text-zinc-400"> Team Name: </label>
@@ -141,10 +144,10 @@ const Createteam = () => {
                         onChange={(e) => {const {value} = e.target;  settname(value);}}/>
                     </div>
                 </div>
-                <div className="text-[18px]">
+                <div className={`text-[18px] ${cap === 'err' ? 'hidden' : ''}`}>
                     Your Teammates are required to enter the same team_id as yours.
                 </div>
-                <div className="flex justify-evenly w-[40%] font-cus2"
+                <div className={`flex justify-evenly w-[40%] font-cus2 ${cap === 'err' ? 'hidden' : ''}`}
                 onClick={submit_team}>
                     <Button className="mx-10" text_size="text-[20px]" text="Create Team" width="w-[150px]" border_width="p-[1px]"
                     />

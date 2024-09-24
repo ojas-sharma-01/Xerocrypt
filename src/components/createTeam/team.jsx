@@ -93,7 +93,7 @@ const Team = () => {
                     <Button text="team" width="w-[80%] md:w-[100%]" height="h-[100%]" text_size="text-[20px] md:text-[40px]" border_width="p-[1px]" />
             </motion.div> */}
             {modal && <div className="fixed inset-0 z-[1] flex justify-center items-center">
-                    <div className="absolute top-[10%] left-[10%] h-[80%] w-[80%] bg-slate-900 bg-opacity-95 flex flex-col items-center">
+                    <div className="absolute top-[10%] left-[10%] h-[80%] w-[80%] bg-slate-900 bg-opacity-[99%] flex flex-col items-center">
                         <div className="absolute w-fit top-0 right-0 m-2 text-[40px] mr-4
                          hover:bg-slate-500"> 
                             <button className="px-4 font-cus2" onClick={() => {setmodal(!modal)}}> X </button>
