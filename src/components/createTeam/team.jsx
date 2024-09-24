@@ -52,8 +52,39 @@ const guidelines = [{
                     guideline: "Using the internet is allowed, as this hunt cannot be solved without it."
                 }];
 
+const faqs = [
+    {
+        q: 'What is Xerocrypt 2.0 ?',
+        a: 'It is a 24 hrs online cryptic hunt event conducted by DevComm NSUT.'
+    },
+    {
+        q: 'Who can participate? Are there any prerequisites?',
+        a: 'Any student from NSUT (all years) can participate. There is no prerequisite, no coding skills required.'
+    },
+    {
+        q: 'How many members can be present in one team?',
+        a: '1-4'
+    },
+    {
+        q: 'Is there any registration fee?',
+        a: 'No the event is absolutely free.'
+    },
+    {
+        q: 'Can non DevComm members participate?',
+        a: 'Yes'
+    },
+    {
+        q: 'Will there be any prizes?',
+        a: 'Yes, the prize pool is worth 1 Lakh.'
+    },
+    {
+        q: 'Is it important to join the discord server?',
+        a:'Yes, hints will be posted in the server'
+    }
+];
 const Team = () => {
-    const [modal, setmodal] = useState(false);
+    const [i_modal, set_i_modal] = useState(false);
+    const [faq_modal, set_faq_modal] = useState(false);
     const {user, login, logout} = useContext(authContext);
     const {clock} = useContext(clockContext);
 
@@ -74,17 +105,19 @@ const Team = () => {
                   initial={{ width: '60px' }}
                   whileHover={{ width: '120px' }} 
                   className="overflow-hidden text-white fixed top-[20%] md:top-[30%] left-[-1.25rem] md:left-[-1rem] my-[10px]"
-                  onClick={() => {setmodal(!modal)}} 
+                  onClick={() => {set_i_modal(!i_modal)}} 
                >
                     <Button text="i" width="w-[80%] md:w-[100%]" height="h-[100%]" text_size="text-[20px] md:text-[40px]" border_width="p-[1px]" />
             </motion.div>
-            {/* <motion.div
-                  initial={{ width: '60px' }}
-                  whileHover={{ width: '120px' }} 
-                  className="overflow-hidden text-white fixed top-[35%] md:top-[40%] left-[-1.25rem] md:left-[-1rem] my-[10px]"
+            <motion.div
+                  initial={{ width: '110px' }}
+                  whileHover={{ width: '140px' }} 
+                  className="overflow-hidden text-white fixed top-[35%] md:top-[45%] 2xl:top-[40%] left-[-1.25rem] md:left-[-1rem] my-[10px] hidden md:block"
+                  onClick={() => {set_faq_modal(!faq_modal)}}
                >
-                    <Button text="discord" width="w-[80%] md:w-[100%]" height="h-[100%]" text_size="text-[20px] md:text-[40px]" border_width="p-[1px]" />
-            </motion.div> */}
+                    <Button text="FaQ"
+                    width="w-[80%] md:w-[100%]" height="h-[100%]" text_size="text-[20px] md:text-[40px]" border_width="p-[1px]" />
+            </motion.div>
             {/* <motion.div
                   initial={{ width: '60px' }}
                   whileHover={{ width: '120px' }} 
@@ -92,11 +125,11 @@ const Team = () => {
                >
                     <Button text="team" width="w-[80%] md:w-[100%]" height="h-[100%]" text_size="text-[20px] md:text-[40px]" border_width="p-[1px]" />
             </motion.div> */}
-            {modal && <div className="fixed inset-0 z-[1] flex justify-center items-center">
+            {i_modal && <div className="fixed inset-0 z-[1] flex justify-center items-center">
                     <div className="absolute top-[10%] left-[10%] h-[80%] w-[80%] bg-slate-900 bg-opacity-[99%] flex flex-col items-center">
                         <div className="absolute w-fit top-0 right-0 m-2 text-[40px] mr-4
                          hover:bg-slate-500"> 
-                            <button className="px-4 font-cus2" onClick={() => {setmodal(!modal)}}> X </button>
+                            <button className="px-4 font-cus2" onClick={() => {set_i_modal(!i_modal)}}> X </button>
                         </div>
                         <div className="m-10 mt-4 text-[30px] md:text-[50px] font-cus2 border-b-2 border-white w-fit
                         md:w-[80%]"> Guidelines </div>
@@ -110,6 +143,32 @@ const Team = () => {
                             )
                         })}
                         <p className="text-green-400 text-[30px] md:text-[50px] mb-8 mt-[-20px]">GAME ON !!!</p>
+                        </div>
+                    </div>
+            </div>}
+            {faq_modal && <div className="fixed inset-0 z-[1] flex justify-center items-center">
+                    <div className="absolute top-[10%] left-[10%] h-[80%] w-[80%] bg-slate-900 bg-opacity-[99%] flex flex-col items-center">
+                        <div className="absolute w-fit top-0 right-0 m-2 text-[40px] mr-4
+                         hover:bg-slate-500"> 
+                            <button className="px-4 font-cus2" onClick={() => {set_faq_modal(!faq_modal)}}> X </button>
+                        </div>
+                        <div className="m-10 mt-4 text-[30px] md:text-[50px] font-cus2 border-b-2 border-white w-fit
+                        md:w-[80%]"> FaQs </div>
+                        <div className="scroll_hide m-auto w-[90%] h-[150%] flex flex-col justify-evenly overflow-auto font-cus2">
+                        {faqs.map((ele, index) => {
+                            return (
+                                <div key={index} className="flex flex-col justify-evenly w-full my-8 text-[30px]">
+                                    <div className="flex">
+                                        <div className="flex-[0.1] md:flex-[0.05] text-[60px] pb-10 text-green-400">*</div>
+                                        <div className="flex-[0.9] md:flex-[0.95] text-left pl-4 flex flex-col justify-evenly">
+                                            <div className="text-green-400">{ele.q}</div>
+                                            <div>{ele.a}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })}
+                        {/* <p className="text-green-400 text-[30px] md:text-[50px] mb-8 mt-[-20px]">GAME ON !!!</p> */}
                         </div>
                     </div>
             </div>}
@@ -134,10 +193,12 @@ const Team = () => {
                         height="100" border_width="p-[1px]"/>
                     </Link>
                 </div>
-                <div className="md:hidden">
-                    <Link to="/register">
+                <div className="md:hidden flex justify-evenly w-[100%]">
+                    <div><Link to="/register">
                     <Button text="Register" text_size="text-[25px] md:text-[40px]" width="w-[110px] md:w-[170px]" 
-                    height="100" border_width="p-[1px]"/></Link>
+                    height="100" border_width="p-[1px]"/></Link></div>
+                    <div onClick={() => {set_faq_modal(!faq_modal)}}><Button text="FaQ" text_size="text-[25px] md:text-[40px]" width="w-[110px] md:w-[170px]" 
+                    height="100" border_width="p-[1px]"/></div>
                 </div>
             </div>
         </div>
