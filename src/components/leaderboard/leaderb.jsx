@@ -17,8 +17,6 @@ const Leaderb = () => {
         const q = await getDocs(querys);
         var cnt = -1;
 
-        console.log("ff");
-
         const newleaderboard = q.docs.map((doc) => {
             return {
                 key : doc.id,
