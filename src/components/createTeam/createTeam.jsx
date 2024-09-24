@@ -18,7 +18,7 @@ const Createteam = () => {
     const [cap, setcap] = useState(null);
     const [tname, settname] = useState('');
     const handle_cap = async () => {
-        const ret = await fetch('https://xero-back.vercel.app/get_captcha?admin=ojas223');
+        const ret = await fetch('https://xero-back.vercel.app/get_captcha');
         const data = await ret.json();
         if (data.type !== 'error') {
             setcap(data.message);

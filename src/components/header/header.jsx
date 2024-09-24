@@ -111,13 +111,13 @@ const Header = () => {
                         <Button text="Leaderboard" text_size="text-[20px]" border_width="p-[1px]" width="w-[140px]" />
                     </Link>
                 </div>
-                {team && (
+                {/* {team && (
                     <div className="mx-8 flex items-center">
                         <Link to="/ques">
                             <Button text="Arena" text_size="text-[20px]" border_width="p-[1px]" width="w-[120px]" />
                         </Link>
                     </div>
-                )}
+                )} */}
             </div>
         </>
     );
