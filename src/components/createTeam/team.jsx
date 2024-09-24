@@ -13,7 +13,7 @@ const guidelines = [{
                     guideline: "The hunt will last for 24 hours, 28 Sept 12PM - 29 Sept 12PM."
                 },
                 {
-                    guideline: "The answers are case sensitive and can contain special letters/symbols \
+                    guideline: "All answers are in lower case and can contain special letters/symbols \
                      but are one word only. Eg : if the answer is ''ye is the goat' \
                      then the correct submission would be 'yeisthegoat'."
                 },
@@ -68,7 +68,7 @@ const Team = () => {
         <div className="bg-black min-h-screen h-screen md:h-auto justify-center items-center relative flex flex-col w-[100%] text-white overflow-x-hidden">
             <Header />
             <div className="absolute top-[8%] md:top-[10%] text-white text-[30px] right-[0.3rem] md:right-[2rem]">
-                <a href="https://discord.gg/UuJdGK9GkE." target="__blank"> <img className="h-[30px] md:h-[50px]" src={discord}/> </a>
+                <a href="https://discord.gg/UuJdGK9GkE" target="__blank"> <img className="h-[30px] md:h-[50px]" src={discord}/> </a>
             </div>
             <motion.div
                   initial={{ width: '60px' }}
