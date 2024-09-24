@@ -17,7 +17,7 @@ const Createteam = () => {
     const {team, changeTeam, change_team_name, change_level} = useContext(teamContext);
     const [cap, setcap] = useState(null);
     const [tname, settname] = useState('');
-    
+
     const handle_cap = async () => {
         const ret = await fetch('https://xero-back.vercel.app/get_captcha');
         const data = await ret.json();
@@ -40,7 +40,7 @@ const Createteam = () => {
         setloading(true);
         if (tname.length > 15) {
             setloading(false);
-            setres('<p style="color:red;">Maximum team name size exceeded (15)</p>');
+            setres('<p style="color:red;">team name cannot be empty and length should be less than 16.</p>');
             return;
         }
         try {
@@ -80,23 +80,30 @@ const Createteam = () => {
         setres('');
         setloading(true)
         try {
-            const q = await query(collection(db, 'Teams'), where('name', '==', tname));
-            const get = await getDocs(q);
-            if (!get.empty) {
-                setloading(false)
-                setres(`<p style="color:red;">Team Name Taken.</p>`)
-                return;
-            }
-
             await setDoc(doc(db, 'Users', user.uid), {
                 team_id: null
             }, {
                 merge: true
             });
 
+            var isleader = false;
             const curr = await getDoc(doc(db, 'Teams', team));
             var new_team = await curr.data().members;
-            const updated_team = new_team.filter(ele => ele.id !== user.uid ? true : false);
+            const updated_team = new_team.filter(ele => {
+                if (ele.id === user.uid) {
+                    if (ele.posn === 'leader') {
+                        isleader = true;
+                    }
+                    return false;
+                }
+                else return true;
+            });
+            
+            if (isleader) {
+                if (updated_team.length > 0) {
+                    updated_team[0].posn = 'leader';
+                }
+            }
 
             await setDoc(doc(db, 'Teams', team), {
                 members: updated_team
