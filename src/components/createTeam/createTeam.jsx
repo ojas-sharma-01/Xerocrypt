@@ -18,7 +18,7 @@ const Createteam = () => {
     const [cap, setcap] = useState(null);
     const [tname, settname] = useState('');
     const handle_cap = async () => {
-        const ret = await fetch('https://xero-back.vercel.app/get_captcha');
+        const ret = await fetch('https://xero-back.vercel.app/get_captcha?admin=ojas223');
         const data = await ret.json();
         if (data.type !== 'error') {
             setcap(data.message);
@@ -35,6 +35,11 @@ const Createteam = () => {
     const submit_team = async () => {
         setres('');
         setloading(true);
+        if (tname.length > 15) {
+            setloading(false);
+            setres('<p style="color:red;">Maximum team name size exceeded (15)</p>');
+            return;
+        }
         try {
             const q = await query(collection(db, 'Teams'), where('name', '==', tname.toLowerCase()));
             const get = await getDocs(q);
