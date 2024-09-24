@@ -3,6 +3,7 @@ import { teamContext } from "./teamcontexts";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { DB } from "../firebutil/firestore/firestoredb";
+import Modal from "../components/login_signup/logout_confirm";
 
 const authContext = createContext();
 const auth = getAuth();
@@ -11,6 +12,7 @@ const AuthProvider = ({ children }) => {
     const {changeTeam, change_team_name, change_level} = useContext(teamContext);
     const [user, setuser] = useState(null);
     const [uname, setuname] = useState(null);
+    const [isModalOpen, setIsModalOpen]= useState(false);
 
     function getCookie(name) {
         const value = `; ${document.cookie}`;
@@ -52,22 +54,38 @@ const AuthProvider = ({ children }) => {
     }
 
     const logout = () => {
-        setuname(null);
-        setuser(null);
-        document.cookie = "token=; path=/; max-age=0";
-        changeTeam(null);
-        change_team_name(null);
-        change_level(0);
-        signOut(auth).then(() => {
-            console.log('User signed out successfully');
-        }).catch((error) => {
-            console.error('Error signing out: ', error);
-        });
-    }
+        setIsModalOpen(true);
+    };
+
+    const handleConfirmLogout = () => {
+        
+            setuname(null);
+            setuser(null);
+            document.cookie = "token=; path=/; max-age=0";
+            changeTeam(null);
+            change_team_name(null);
+            change_level(0);
+            
+            signOut(auth).then(() => {
+                console.log('User signed out successfully');
+            }).catch((error) => {
+                console.error('Error signing out: ', error);
+            });
+            setIsModalOpen(false);
+    };
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
+    
 
     return (
         <authContext.Provider value={{user, login, logout, changename, uname}}>
             {children}
+            <Modal
+                isOpen={isModalOpen}
+                onConfirm={handleConfirmLogout}
+                onClose={handleCloseModal}
+            />
         </authContext.Provider>
     )
 }
