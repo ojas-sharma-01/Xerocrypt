@@ -17,6 +17,7 @@ import Loading from './components/loader/loading_.jsx';
 import ClockProvider from './contexts/clockContext.jsx';
 import Dbprovider from './firebutil/firestore/firestoredb.js';
 import { Analytics } from "@vercel/analytics/react"
+import Forgotp from './components/login_signup/forgotp.jsx';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
                   <Route path='/ques' element={< Ques_temp />} />
                   <Route path='/login' element={<Login />} />
                   <Route path='/register' element={<Signup />} />
+                  <Route path='/forgot_pass' element={<Forgotp />} />
                   <Route path='/your_team' element={<YourTeam />} />
                   <Route path='/join_team' element={<Jointeam />} />
                   <Route path='/create_team' element={<Createteam />} />

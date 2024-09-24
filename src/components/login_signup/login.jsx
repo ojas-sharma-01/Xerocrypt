@@ -108,6 +108,7 @@ const Login = () => {
                         onChange={handlecred}/>
                     </div>
                 </div>
+                <p className="text-[20px] font-cus2">Forgot password ? Click <Link to="/forgot_pass" className="text-green-400 hover:text-white"> here </Link></p>
                 <div className="m-8 text-[20px]" onClick={handlelogin}>
                     <Button text="Login" border_width = "p-[1px]" height="h-[50px]" width="w-[100px]"/>
                 </div>
