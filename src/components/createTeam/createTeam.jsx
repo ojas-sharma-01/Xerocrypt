@@ -38,7 +38,7 @@ const Createteam = () => {
     const submit_team = async () => {
         setres('');
         setloading(true);
-        if (tname.length > 15) {
+        if (tname.length > 15 || tname.length < 1) {
             setloading(false);
             setres('<p style="color:red;">team name cannot be empty and length should be less than 16.</p>');
             return;
