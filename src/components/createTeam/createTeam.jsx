@@ -125,7 +125,7 @@ const Createteam = () => {
                 {(team === null) ? 
                 (cap === null ? <>
                     <div className="text-[40px]">
-                        <Loading />
+                        <div className="w-[120px] h-auto"><Loading /></div>
                     </div></> : <><div className="text-[40px] md:text-[70px] font-cus2 text-green-400"> Create your Team. </div>
                 <div>
                     <div className="text-[30px] font-cus2 text-zinc-400 mb-2"> Your Team Id : {cap} </div>

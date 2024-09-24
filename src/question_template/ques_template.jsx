@@ -22,7 +22,7 @@ const Ques_temp = () => {
         setloading(true);
         // set_can_move(false);
         try {
-            const ret = await fetch(`https://xero-back.vercel.app/check_ans?q_no=${leve+1}&ans=${ans}&admin=ojas223`);
+            const ret = await fetch(`https://xero-back.vercel.app/check_ans?q_no=${leve+1}&ans=${ans}`);
             const data = await ret.json();
 
             if (data.type === 'error') {
