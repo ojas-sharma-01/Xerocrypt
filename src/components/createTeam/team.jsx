@@ -23,6 +23,9 @@ const guidelines = [{
                     it will be considered INCORRECT."
                 },
                 {
+                    guideline: '<p> Leaderboard will get refreshed once only per hour. This is part of the Hunt.</p>'
+                },
+                {
                     guideline: `<p>Hints will be posted \n on this discord server \n 
                     <a target="__blank" class="hov" href="https://discord.gg/UuJdGK9GkE">LINK</a> .</p>`
                 }, 
