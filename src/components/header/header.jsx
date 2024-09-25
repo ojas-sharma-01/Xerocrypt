@@ -6,9 +6,10 @@ import { authContext } from "../../contexts/authcontext";
 import { useContext, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { teamContext } from "../../contexts/teamcontexts";
+import p_icon from './profile_icon.png';
 
 const Header = () => {
-    const { user, logout } = useContext(authContext);
+    const { user, logout, uname } = useContext(authContext);
     const { team } = useContext(teamContext);
     const [ham, setHam] = useState(false);
 
@@ -47,6 +48,9 @@ const Header = () => {
                         <div className="flex justify-end text-[35px] w-full mb-4 cursor-pointer font-cus2" onClick={() => setHam(!ham)}>
                             X
                         </div>
+                        {user && <div className="m-6 text-[25px] font-cus2 flex items-center justify-center">
+                           <img className="mr-2" src={p_icon} alt="profile" /> <div className="break-all ml-2"> { uname } </div> 
+                        </div> }
                         <div className="m-6">
                             <Link to="/your_team">
                                 <Button text_size="text-[20px]" text="Team" border_width="p-[1px]" width="w-[120px]" height="h-[40px]" />
@@ -106,6 +110,9 @@ const Header = () => {
                         </div>
                     )}
                 </div>
+                {user && <div className="mx-8 items-center text-[25px] flex justify-evenly">
+                    <img src={p_icon} alt="profile" className="mr-2" /> <div className="ml-2"> { uname } </div>
+                    </div> }
                 {/* <div className="mx-8 flex items-center">
                     <Link to="/leaderboard">
                         <Button text="Leaderboard" text_size="text-[20px]" border_width="p-[1px]" width="w-[140px]" />
