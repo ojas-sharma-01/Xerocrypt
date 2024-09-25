@@ -107,7 +107,7 @@ const Header = () => {
                     )}
                 </div>
                 <div className="mx-8 flex items-center">
-                    <Link to="/leaderboard/1">
+                    <Link to="/leaderboard">
                         <Button text="Leaderboard" text_size="text-[20px]" border_width="p-[1px]" width="w-[140px]" />
                     </Link>
                 </div>

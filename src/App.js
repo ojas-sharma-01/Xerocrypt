@@ -37,7 +37,7 @@ function App() {
                   <Route path='/join_team' element={<Jointeam />} />
                   <Route path='/create_team' element={<Createteam />} />
                   <Route path="/" element={<Team />} />
-                  <Route path='/leaderboard/:no' element={<Leaderb />} />
+                  <Route path='/leaderboard' element={<Leaderb />} />
                   <Route path='*' element={<Four04 />} />
                 </Routes>
               </div>
