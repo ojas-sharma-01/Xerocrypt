@@ -11,11 +11,24 @@ import { DB } from "../firebutil/firestore/firestoredb";
 const Ques_temp = () => {
     const {db} = useContext(DB);
     const [loading, setloading] = useState(false);
+    const [ques, setques] = useState({q_no:'', title:'', question:''});
     const { team, leve, change_level } = useContext(teamContext);
     const Nav = useNavigate();
     const [res, setres] = useState('');
     const [ans, setans] = useState('');
     // const [can_move, set_can_move] = useState(false);
+
+    const get_ques = async (no) => {
+        try {
+            const ret = await fetch(`https://xero-back.vercel.app/get_ques?no=${no}`);
+            const dat = await ret.json();
+
+            setques(dat.questi);
+        }
+        catch (e) {
+
+        }
+    };
 
     const check_ans = async () => {
         setres('');
@@ -64,6 +77,10 @@ const Ques_temp = () => {
         setans('');
         setres('');
     }, [team, Nav])
+
+    // useEffect(() => {
+    //     get_ques(leve+1);
+    // }, [leve]);
 
     return (
         <div className="bg-black text-white min-h-screen flex flex-col max-w-[100%] overflow-x-hidden">
