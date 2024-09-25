@@ -19,6 +19,11 @@ const Jointeam = () => {
         setres('');
         setloading(true);
         try {
+            if (team !== null && team_id !== null && team === team_id) {
+                setloading(false);
+                setres('<p style="color:red;">You are trying to rejoin your current team.</p>');
+                return;
+            }
             const q = query(collection(db, 'Teams'), where('Teamid', '==', team_id))
             const curr_team = await getDocs(q);
             let fdoc;
@@ -26,14 +31,15 @@ const Jointeam = () => {
                 fdoc = ele.data()
             });
             let newpos;
-
-            (fdoc.members.length === 0) ? (newpos = 'leader') : (newpos = 'member');
-
+            
             if (curr_team.empty) {
                 setloading(false)
                 setres(`<p style="color:red;">No team exists with given code.</p>`)
                 return;
             }
+
+            (fdoc.members.length === 0) ? (newpos = 'leader') : (newpos = 'member');
+
             
             if (fdoc.members.length === 4) {
                 setloading(false);
