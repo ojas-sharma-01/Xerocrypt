@@ -22,13 +22,19 @@ const Signup = () => {
         setres('');
         setloading(true);
 
+        if (cred.email.length === 0 || cred.password.length === 0 || cred.name.length === 0) {
+            setloading(false);
+            setres(`<p style="color:red;"> One or more field is empty. </p>`)
+            return;
+        }
+
         const allowedDomain = 'nsut.ac.in';
         const emailDomain = cred.email.split('@')[1];
 
         if (emailDomain !== allowedDomain) {
             setloading(false);
             setres('<p style="color:red;">\
-                Please use your NSUT email ID (....@nsut.ac.in)\
+                Please use your NSUT email ID (....@nsut.ac.in).\
                 </p>');
             return;
         }
@@ -52,7 +58,7 @@ const Signup = () => {
             
             setloading(false);
             setres('<p style="color:green;">\
-                email verification link sent\
+                email verification link sent.\
                 </p>');
         })
         .catch(e => {
