@@ -10,6 +10,9 @@ import yhill from './YHills-logo-main.webp'
 import discord from './discord.png'
 import '../../index.css';
 const guidelines = [{
+                    guideline: '<p>Team modifications and new registrations will close at IST 11 AM, 28 September. Make sure to finalize your team and register before the deadline</p>'
+                },
+                {
                     guideline: "The hunt will last for 24 hours, 28 Sept 12PM - 29 Sept 12PM."
                 },
                 {
