@@ -94,8 +94,6 @@ const Createteam = () => {
                     if (ele.posn === 'leader') {
                         isleader = true;
                     }
-
-                    
                     return false;
                 }
                 else return true;
