@@ -67,11 +67,11 @@ const Header = () => {
                                 </div>
                             )}
                         </div>
-                        {/* <div className="m-6">
+                        <div className="m-6">
                             <Link to="/leaderboard">
                                 <Button text="Leaderboard" text_size="text-[20px]" border_width="p-[1px]" width="w-[140px]" height="h-[40px]" />
                             </Link>
-                        </div> */}
+                        </div>
                         {/* {team &&  (
                         <div className="m-6">
                             <Link to="/ques">
@@ -110,11 +110,11 @@ const Header = () => {
                         </div>
                     )}
                 </div>
-                {/* <div className="mx-8 flex items-center">
+                <div className="mx-8 flex items-center">
                     <Link to="/leaderboard">
                         <Button text="Leaderboard" text_size="text-[20px]" border_width="p-[1px]" width="w-[140px]" />
                     </Link>
-                </div> */}
+                </div>
                 {/* {team && (
                     <div className="mx-8 flex items-center">
                         <Link to="/ques">
