@@ -8,6 +8,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { teamContext } from "../../contexts/teamcontexts";
 import p_icon from './profile_icon.png';
 
+
+
 const Header = () => {
     const { user, logout, uname } = useContext(authContext);
     const { team } = useContext(teamContext);
