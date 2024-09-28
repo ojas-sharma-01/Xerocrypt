@@ -50,7 +50,7 @@ const Leaderb = () => {
                         return (<div key={index} className={`flex m-[20px] py-[2px] ${index%2 == 0 ? 'bg-gray-800' : ''}`}>
                             <div className='hidden md:flex flex-[0.2] justify-center'>{(no-1)*10+index+1}</div>
                             <div className='flex-[0.25] flex justify-center'>{ent.data.level*100}</div>
-                            <div className='flex-[0.5] flex justify-center'>{ent.data.name}</div>
+                            <div className={`flex-[0.5] flex justify-center ${ent.data.name === "devcomm admin" ? 'text-red-500' : ''}`}>{ent.data.name}</div>
                             <div className='flex-[0.25] flex justify-center'>{ent.data.level}</div>
                         </div>)
                     })}
