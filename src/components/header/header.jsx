@@ -68,7 +68,7 @@ const Header = () => {
                             )}
                         </div>
                         {/* <div className="m-6">
-                            <Link to="/leaderboard/1">
+                            <Link to="/leaderboard">
                                 <Button text="Leaderboard" text_size="text-[20px]" border_width="p-[1px]" width="w-[140px]" height="h-[40px]" />
                             </Link>
                         </div> */}
@@ -110,9 +110,6 @@ const Header = () => {
                         </div>
                     )}
                 </div>
-                {user && <div className="mx-8 items-center text-[25px] flex justify-evenly">
-                    <img src={p_icon} alt="profile" className="mr-2" /> <div className="ml-2"> { uname } </div>
-                    </div> }
                 {/* <div className="mx-8 flex items-center">
                     <Link to="/leaderboard">
                         <Button text="Leaderboard" text_size="text-[20px]" border_width="p-[1px]" width="w-[140px]" />
@@ -125,6 +122,9 @@ const Header = () => {
                         </Link>
                     </div>
                 )} */}
+                {user && <div className="mx-8 items-center text-[25px] flex justify-evenly">
+                    <img src={p_icon} alt="profile" className="mr-2" /> <div className="ml-2"> { uname } </div>
+                    </div> }
             </div>
         </>
     );

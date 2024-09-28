@@ -136,7 +136,7 @@ const Createteam = () => {
          >
             <div className="bg-black h-screen w-screen flex flex-col">
             <Header />
-            {user ? <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto w-fit h-full">
+            {/* {user ? <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto w-fit h-full">
                 {(team === null) ? 
                 (cap === null ? <>
                     <div className="text-[40px]">
@@ -175,8 +175,11 @@ const Createteam = () => {
                 >
                     <Loading />
                 </div> }
-                </>)}
-            </div> : <div className="text-white text-[30px] my-auto">You are not logged in.</div>}
+                </>)} */}
+            {/* </div> : <div className="text-white text-[30px] my-auto">You are not logged in.</div>} */}
+            <div className="text-white font-cus2 text-[30px] md:text-[50px] my-60">
+                Team Modifications Closed.
+            </div>
             </div>
         </motion.div>
     );

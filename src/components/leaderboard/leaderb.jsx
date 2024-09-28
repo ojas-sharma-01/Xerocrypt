@@ -12,20 +12,21 @@ const Leaderb = () => {
     const [board, setboard] = useState([]);
     const bottomtrail = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     const getd = async () => {
-        const get_entries = collection(db, "Teams");
-        const querys = query(get_entries, orderBy('level', "desc"), orderBy('lastCorrectAnswerAt', 'asc'));
-        const q = await getDocs(querys);
-        var cnt = -1;
+        // const get_entries = collection(db, "Teams");
+        // const querys = query(get_entries, orderBy('level', "desc"), orderBy('lastCorrectAnswerAt', 'asc'));
+        // const q = await getDocs(querys);
+        // var cnt = -1;
+        const ret = await fetch('https://xero-back.vercel.app/fetch_leaderb');
+        const dat = await ret.json();
 
-        const newleaderboard = q.docs.map((doc) => {
-            return {
-                key : doc.id,
-                data : doc.data(),
-            }
-        });
-        
+        // const newleaderboard = q.docs.map((doc) => {
+        //     return {
+        //         key : doc.id,
+        //         data : doc.data(),
+        //     }
+        // });
         // const new_lead = newleaderboard
-        setboard(newleaderboard);
+        setboard(dat.message);
     };
 
     useEffect(() => {

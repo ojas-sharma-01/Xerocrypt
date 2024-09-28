@@ -109,7 +109,7 @@ const Jointeam = () => {
          >
             <div className="bg-black h-screen flex flex-col w-screen">
                 <Header />
-                {user ? <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto h-full">
+                {/* {user ? <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto h-full">
                     <div className="text-[40px] md:text-[70px] font-cus2 text-green-400">Join a Team.</div>
                     <div className="text-[30px] flex flex-col text-white w-full font-cus2">
                         <div className="mb-2">Enter the ID of the team you want to join.</div>
@@ -134,7 +134,8 @@ const Jointeam = () => {
                     <Loading />
                 </div> }
                 </div>
-                : <div className="text-[30px] text-white my-auto">You are not logged in.</div>}
+                : <div className="text-[30px] text-white my-auto">You are not logged in.</div>} */}
+                <div className="text-white font-cus2 text-[30px] md:text-[50px] my-60">Team Modifications Closed.</div>
             </div>
         </motion.div>
     );

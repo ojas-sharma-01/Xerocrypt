@@ -35,7 +35,15 @@ const Ques_temp = () => {
         setloading(true);
         // set_can_move(false);
         try {
-            const ret = await fetch(`https://xero-back.vercel.app/check_ans?q_no=${leve+1}&ans=${ans}`);
+            const ret = await fetch(`https://xero-back.vercel.app/check_ans?q_no=${leve+1}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json', 
+                },
+                body: JSON.stringify({
+                    answ: ans,
+                })
+            });
             const data = await ret.json();
 
             if (data.type === 'error') {
@@ -48,10 +56,13 @@ const Ques_temp = () => {
                 setloading(false);
                 setres(`<p style="color:green;"> Correct. </p>`);
                 const curr = (await getDoc(doc(db, 'Teams', team))).data().level;
-                await setDoc(doc(db, 'Teams', team), {
-                    level: Math.max(curr, leve+1),
-                    lastCorrectAnswerAt: serverTimestamp()
-                }, {merge: true});
+               
+                if (curr < leve + 1) {
+                    await setDoc(doc(db, 'Teams', team), {
+                        level: leve + 1,
+                        lastCorrectAnswerAt: serverTimestamp()
+                    }, { merge: true });
+                }
                 
                 change_level(leve+1);
                 setres('');
@@ -85,7 +96,7 @@ const Ques_temp = () => {
     return (
         <div className="bg-black text-white min-h-screen flex flex-col max-w-[100%] overflow-x-hidden">
             <Header />
-            {leve === 10 ? 
+            {leve === 13 ? 
             <>
                 <div className="text-[50px] text-green-400 m-auto font-cus2">
                     YAY .
