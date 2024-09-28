@@ -9,6 +9,7 @@ import { clockContext } from "../../contexts/clockContext";
 import yhill from './YHills-logo-main.webp'
 import discord from './discord.png'
 import '../../index.css';
+import { teamContext } from "../../contexts/teamcontexts";
 const guidelines = [{
                     guideline: '<p>Team modifications and new registrations will close at IST 11 AM, 28 September. Make sure to finalize your team and register before the deadline.</p>'
                 },
@@ -93,6 +94,7 @@ const Team = () => {
     const [faq_modal, set_faq_modal] = useState(false);
     const {user, login, logout} = useContext(authContext);
     const {clock} = useContext(clockContext);
+    const {team} = useContext(teamContext);
 
 
     return (
