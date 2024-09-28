@@ -123,7 +123,7 @@ const Createteam = () => {
     };
 
     useEffect(() => {
-        if (team === null && user !== null) handle_cap();
+        // if (team === null && user !== null) handle_cap();
     }, [team]);
 
 
