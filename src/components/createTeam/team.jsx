@@ -187,9 +187,9 @@ const Team = () => {
                 <div className="text-[50px] md:text-[70px] font-cus2">
                     {/* { clock === null ? 0 : clock.days }:{ clock === null ? 0 : clock.hours }:
                     { clock === null ? 0 : clock.minutes}:{ clock === null ? 0 : clock.seconds } */}
-                    <Link to="/ques">
+                    {team && <Link to="/ques">
                         <Button text="Enter" text_size="text-[25px] md:text-[30px]" width="w-[130px]" height="h-[40px]" border_width="p-[1px]"/>
-                    </Link>
+                    </Link>}
                 </div>
                 <div className="text-[30px] md:text-[50px] text-white w-full font-cus2">Create/Join Your Team.</div>
                 <div className="mt-4 flex justify-evenly w-[100%] font-cus2">
