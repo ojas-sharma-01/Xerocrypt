@@ -4,7 +4,6 @@ import Button from "../components/button_cus/button_cus";
 import { setDoc, doc, getDoc, serverTimestamp } from "firebase/firestore";
 import { teamContext } from "../contexts/teamcontexts";
 import { useNavigate } from "react-router-dom";
-import questions from "./questions";
 import Loading from "../components/loader/loading_";
 import { DB } from "../firebutil/firestore/firestoredb";
 
@@ -20,13 +19,13 @@ const Ques_temp = () => {
 
     const get_ques = async (no) => {
         try {
-            const ret = await fetch(`https://xero-back.vercel.app/get_ques?no=${no}`);
+            const ret = await fetch(`https://xero-back.vercel.app/ges?q_no=${no}`);
             const dat = await ret.json();
 
-            setques(dat.questi);
+            setques(dat.message);
         }
         catch (e) {
-
+            console.log(e);
         }
     };
 
@@ -89,9 +88,9 @@ const Ques_temp = () => {
         setres('');
     }, [team, Nav])
 
-    // useEffect(() => {
-    //     get_ques(leve+1);
-    // }, [leve]);
+    useEffect(() => {
+        get_ques(leve+1);
+    }, [leve]);
 
     return (
         <div className="bg-black text-white min-h-screen flex flex-col max-w-[100%] overflow-x-hidden">
@@ -104,10 +103,10 @@ const Ques_temp = () => {
                 </>:
                 <>
                 <div className="text-[60px] flex justify-center mt-10 font-cus2">
-                <div className="w-[80%] flex justify-start">{ leve+1 } . {questions[leve].title} </div>
+                <div className="w-[80%] flex justify-start">{ leve+1 } . {ques.title} </div>
             </div>
             <div className="flex justify-center min-h-[30%] items-center w-full">
-                <div className="w-[85%] md:w-[80%] my-10 text-[25px] text-left" dangerouslySetInnerHTML={{ __html:questions[leve].question }}>
+                <div className="w-[85%] md:w-[80%] my-10 text-[25px] text-left" dangerouslySetInnerHTML={{ __html:ques.question }}>
                 </div>
             </div>
             <div className="flex flex-col w-[70%] md:w-[30%] items-center self-center">
