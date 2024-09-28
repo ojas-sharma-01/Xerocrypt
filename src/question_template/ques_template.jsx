@@ -32,6 +32,11 @@ const Ques_temp = () => {
     const check_ans = async () => {
         setres('');
         setloading(true);
+        if (ans.length === 0) {
+            setloading(false);
+            setres(`<p style="color:red;"> Incorrect </p>`);   
+            return;
+        }
         // set_can_move(false);
         try {
             const ret = await fetch(`https://xero-back2.vercel.app/check_an?q_no=${leve+1}`, {
