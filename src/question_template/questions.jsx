@@ -35,7 +35,7 @@ const questions = [
         question:`
         <div class="flex flex-col justify-evenly h-[400px]">
         <div class="flex justify-center"><img class="w-[320px]" src=${xero_hiha} alt="this img is necesarry" /></div>
-        <div class="flex justify-center"><a class="text-green-400 hover:text-white" href="https://pastebin.com/RcsFma5s" target="_blank">https://pastebin.com/RcsFma5s</a></div>
+        <div class="flex justify-center"><a class="text-green-400 hover:text-white" href="https://pastebin.com/sGR9mwkk" target="_blank">https://pastebin.com/sGR9mwkk</a></div>
         </div>
         `},
     {q_no:5, title: "Listen carefully",
