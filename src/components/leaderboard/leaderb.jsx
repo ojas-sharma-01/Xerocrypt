@@ -12,7 +12,7 @@ const Leaderb = () => {
     const [board, setboard] = useState([]);
     const bottomtrail = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     const getd = async () => {
-        const ret = await fetch('https://xero-back1.vercel.app/fetch_leaderb');
+        const ret = await fetch('https://xero-back2.vercel.app/fetch_leaderb');
         const dat = await ret.json();
 
         // const newleaderboard = q.docs.map((doc) => {

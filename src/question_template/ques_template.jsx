@@ -19,7 +19,7 @@ const Ques_temp = () => {
 
     const get_ques = async (no) => {
         try {
-            const ret = await fetch(`https://xero-back1.vercel.app/ges?q_no=${no}`);
+            const ret = await fetch(`https://xero-back2.vercel.app/ges?q_no=${no}`);
             const dat = await ret.json();
 
             setques(dat.message);
@@ -34,7 +34,7 @@ const Ques_temp = () => {
         setloading(true);
         // set_can_move(false);
         try {
-            const ret = await fetch(`https://xero-back1.vercel.app/check_an?q_no=${leve+1}`, {
+            const ret = await fetch(`https://xero-back2.vercel.app/check_an?q_no=${leve+1}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json', 
