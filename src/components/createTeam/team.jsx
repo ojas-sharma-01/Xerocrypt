@@ -184,12 +184,12 @@ const Team = () => {
                     <p className="flex items-center justify-center"><a href="https://yhills.com/" target="__blank"><img className="h-[50px]" src={yhill}/></a></p>
                 </div>
                 <div className="text-[40px] md:text-[100px] lg:text-[150px] font-cus2 text-green-400">XERO.CRYPT 2.0</div>
-                <div className="text-[50px] md:text-[70px] font-cus2 text-green-400">
-                    { clock === null ? 0 : clock.days }:{ clock === null ? 0 : clock.hours }:
-                    { clock === null ? 0 : clock.minutes}:{ clock === null ? 0 : clock.seconds }
-                    {/* <Link to="/ques">
+                <div className="text-[50px] md:text-[70px] font-cus2">
+                    {/* { clock === null ? 0 : clock.days }:{ clock === null ? 0 : clock.hours }:
+                    { clock === null ? 0 : clock.minutes}:{ clock === null ? 0 : clock.seconds } */}
+                    <Link to="/ques">
                         <Button text="Enter" text_size="text-[25px] md:text-[30px]" width="w-[130px]" height="h-[40px]" border_width="p-[1px]"/>
-                    </Link> */}
+                    </Link>
                 </div>
                 <div className="text-[30px] md:text-[50px] text-white w-full font-cus2">Create/Join Your Team.</div>
                 <div className="mt-4 flex justify-evenly w-[100%] font-cus2">
