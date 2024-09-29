@@ -108,7 +108,10 @@ const Ques_temp = () => {
                 </div>
                 </>:
                 <>
-                <div className="text-[60px] flex justify-center mt-10 font-cus2">
+                <div className="text-[25px] md:text-[40px] my-64 font-cus2">
+                    khatam. gn
+                </div>
+                {/* <div className="text-[60px] flex justify-center mt-10 font-cus2">
                 <div className="w-[80%] flex justify-start">{ leve+1 } . {ques.title} </div>
             </div>
             <div className="flex justify-center min-h-[30%] items-center w-full">
@@ -120,16 +123,16 @@ const Ques_temp = () => {
                 onChange={(e) => { const {value} = e.target; setans(value);}} className="bg-gray-800 border-2 border-white text-center 
                 font-cus2 text-[25px] h-[40px] w-[220px] mb-12" type="text" name="answer" placeholder="enter your answer"/>
                 <div onClick={check_ans}><Button text="Submit" width="w-[150px]" height="h-[40px]" text_size="text-[30px]" border_width="p-[1px] "/></div>
-            </div>
+            </div> */}
             <div>
-            <div className="bg-black m-10 font-cus2 text-[40px] flex justify-center items-center" 
+            {/* <div className="bg-black m-10 font-cus2 text-[40px] flex justify-center items-center" 
                 dangerouslySetInnerHTML={{ __html: res}}
                 >
                 </div>
                 {loading && <div className="bg-black font-cus2 text-[40px] w-[100%] h-[100px] flex justify-center items-center" 
                 >
                     <Loading />
-            </div> }
+            </div> } */}
             {/* {can_move && <div className="flex justify-center" onClick={() => {
                 Nav(`/ques`);
             }}><Button text="Move to Next" width="w-[250px]" height="h-[40px]" text_size="text-[30px]" border_width="p-[1px] "/></div>} */}
