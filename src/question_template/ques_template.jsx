@@ -101,10 +101,10 @@ const Ques_temp = () => {
     return (
         <div className="bg-black text-white min-h-screen flex flex-col max-w-[100%] overflow-x-hidden">
             <Header />
-            {leve === 17 ? 
+            {leve === 18 ? 
             <>
                 <div className="text-[50px] text-green-400 m-auto font-cus2">
-                    YAY .
+                    yayy .
                 </div>
                 </>:
                 <>
