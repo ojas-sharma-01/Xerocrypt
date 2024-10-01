@@ -26,7 +26,7 @@ const Login = () => {
     const handlelogin = async (e) => {
         setres('');
         setloading(true);
-        const ret = await fetch('https://xero-back2.vercel.app/verify');
+        const ret = await fetch('https://xero-back234.vercel.app/verify');
         const dat = await ret.json();
         console.log(dat);
         if (dat.approved === false) {
