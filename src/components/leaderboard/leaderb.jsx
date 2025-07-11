@@ -46,7 +46,7 @@ const Leaderb = () => {
                         <div className='flex-[0.25] flex justify-center text-[16px] md:text-[20px]
                         '>Questions</div>
                     </div>
-                    {board.slice((no-1)*10, (no-1)*10+10).map((ent, index) => {
+                    {board?.slice((no-1)*10, (no-1)*10+10).map((ent, index) => {
                         return (<div key={index} className={`flex m-[20px] py-[2px] ${index%2 == 0 ? 'bg-gray-800' : ''}`}>
                             <div className='hidden md:flex flex-[0.2] justify-center'>{(no-1)*10+index+1}</div>
                             <div className='flex-[0.25] flex justify-center'>{ent.data.level*100}</div>
