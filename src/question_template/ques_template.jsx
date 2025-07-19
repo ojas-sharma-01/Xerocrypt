@@ -15,11 +15,11 @@ const Ques_temp = () => {
     const Nav = useNavigate();
     const [res, setres] = useState('');
     const [ans, setans] = useState('');
-    // const [can_move, set_can_move] = useState(false);
+    const [can_move, set_can_move] = useState(false);
 
     const get_ques = async (no) => {
         try {
-            const ret = await fetch(`https://xero-back2.vercel.app/ges?q_no=${no}`);
+            const ret = await fetch(`https://xero-back234.vercel.app/ges?q_no=${no}`);
             const dat = await ret.json();
 
             setques(dat.message);
@@ -37,9 +37,9 @@ const Ques_temp = () => {
             setres(`<p style="color:red;"> Incorrect </p>`);   
             return;
         }
-        // set_can_move(false);
+        set_can_move(false);
         try {
-            const ret = await fetch(`https://xero-back2.vercel.app/check_an?q_no=${leve+1}`, {
+            const ret = await fetch(`https://xero-back234.vercel.app/check_an?q_no=${leve+1}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json', 
@@ -72,7 +72,7 @@ const Ques_temp = () => {
                 change_level(leve+1);
                 setres('');
                 setans('');
-                // set_can_move(true);
+                set_can_move(true);
             }
             else {
                 setloading(false);
@@ -88,7 +88,7 @@ const Ques_temp = () => {
 
     useEffect(() => {
         if (team === null) { Nav('/') } 
-        // set_can_move(false);
+        set_can_move(false);
         setloading(false)
         setans('');
         setres('');
@@ -108,10 +108,10 @@ const Ques_temp = () => {
                 </div>
                 </>:
                 <>
-                <div className="text-[25px] md:text-[40px] my-64 font-cus2">
+                {/* <div className="text-[25px] md:text-[40px] my-64 font-cus2">
                     khatam. gn
-                </div>
-                {/* <div className="text-[60px] flex justify-center mt-10 font-cus2">
+                </div> */}
+                <div className="text-[60px] flex justify-center mt-10 font-cus2">
                 <div className="w-[80%] flex justify-start">{ leve+1 } . {ques.title} </div>
             </div>
             <div className="flex justify-center min-h-[30%] items-center w-full">
@@ -123,19 +123,19 @@ const Ques_temp = () => {
                 onChange={(e) => { const {value} = e.target; setans(value);}} className="bg-gray-800 border-2 border-white text-center 
                 font-cus2 text-[25px] h-[40px] w-[220px] mb-12" type="text" name="answer" placeholder="enter your answer"/>
                 <div onClick={check_ans}><Button text="Submit" width="w-[150px]" height="h-[40px]" text_size="text-[30px]" border_width="p-[1px] "/></div>
-            </div> */}
+            </div>
             <div>
-            {/* <div className="bg-black m-10 font-cus2 text-[40px] flex justify-center items-center" 
+            <div className="bg-black m-10 font-cus2 text-[40px] flex justify-center items-center" 
                 dangerouslySetInnerHTML={{ __html: res}}
                 >
                 </div>
                 {loading && <div className="bg-black font-cus2 text-[40px] w-[100%] h-[100px] flex justify-center items-center" 
                 >
                     <Loading />
-            </div> } */}
-            {/* {can_move && <div className="flex justify-center" onClick={() => {
+            </div> }
+            {can_move && <div className="flex justify-center" onClick={() => {
                 Nav(`/ques`);
-            }}><Button text="Move to Next" width="w-[250px]" height="h-[40px]" text_size="text-[30px]" border_width="p-[1px] "/></div>} */}
+            }}><Button text="Move to Next" width="w-[250px]" height="h-[40px]" text_size="text-[30px]" border_width="p-[1px] "/></div>}
             </div>
                 </>}
         </div>

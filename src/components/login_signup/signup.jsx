@@ -78,8 +78,8 @@ const Signup = () => {
         <div className="bg-black max-w-[100%] justify-center items-center w-screen flex flex-col text-white overflow-x-hidden">
             <Header />
             <div className="h-screen flex flex-col items-center">
-                <div className="my-60 font-cus2 text-[30px] md:text-[50px]"> Registrations Closed. <p className="text-[20px] text-green-500"></p></div>
-                {/* <div className="flex flex-col justify-evenly items-center h-[30%] text-[20px]">
+                <div className="my-14 font-cus2 text-[30px] md:text-[50px]"> Signup <p className="text-[20px] text-green-500"></p></div>
+                <div className="flex flex-col justify-evenly items-center h-[30%] text-[20px]">
                     <div>
                         <input type="email" value={cred.email} 
                         name="email"
@@ -111,8 +111,8 @@ const Signup = () => {
                         placeholder="Enter your Name"
                         onChange={handlecred}/>
                     </div>
-                </div> */}
-                {/* <div className="m-8 text-[20px]" onClick={handlesignup}>
+                </div>
+                <div className="m-8 text-[20px]" onClick={handlesignup}>
                     <Button text="Register" border_width = "p-[1px]" height="h-[50px]" width="w-[100px]"/>
                 </div>
                 <div className="text-[20px] font-cus2">Click <Link to="/login" className="hover:bg-gray-900 text-green-300">here</Link> to login.
@@ -120,11 +120,11 @@ const Signup = () => {
                 <div className="bg-black m-10 font-cus2 text-[40px] flex justify-center items-center" 
                 dangerouslySetInnerHTML={{ __html: res}}
                 >
-                </div> */}
-                {/* {loading && <div className="bg-black font-cus2 text-[40px] w-[80%] h-[100px] flex justify-center items-center" 
+                </div>
+                {loading && <div className="bg-black font-cus2 text-[40px] w-[80%] h-[100px] flex justify-center items-center" 
                 >
                     <Loading />
-                </div> } */}
+                </div> }
             </div>
         </div>
     );

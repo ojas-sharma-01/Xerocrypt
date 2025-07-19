@@ -19,7 +19,7 @@ const Createteam = () => {
     const [tname, settname] = useState('');
 
     const handle_cap = async () => {
-        const ret = await fetch('https://xero-back2.vercel.app/get_captcha');
+        const ret = await fetch('https://xero-back234.vercel.app/get_captcha');
         const data = await ret.json();
         if (data.type !== 'error' && data.type !== 'error1') {
             setcap(data.message);
@@ -123,7 +123,7 @@ const Createteam = () => {
     };
 
     useEffect(() => {
-        // if (team === null && user !== null) handle_cap();
+        if (team === null && user !== null) handle_cap();
     }, [team]);
 
 
@@ -136,7 +136,7 @@ const Createteam = () => {
          >
             <div className="bg-black h-screen w-screen flex flex-col">
             <Header />
-            {/* {user ? <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto w-fit h-full">
+            {user ? <div className="flex flex-col text-white justify-evenly items-center p-[20px] m-auto w-fit h-full">
                 {(team === null) ? 
                 (cap === null ? <>
                     <div className="text-[40px]">
@@ -175,11 +175,11 @@ const Createteam = () => {
                 >
                     <Loading />
                 </div> }
-                </>)} */}
-            {/* </div> : <div className="text-white text-[30px] my-auto">You are not logged in.</div>} */}
-            <div className="text-white font-cus2 text-[30px] md:text-[50px] my-60">
+                </>)}
+            </div> : <div className="text-white text-[30px] my-auto">You are not logged in.</div>}
+            {/* <div className="text-white font-cus2 text-[30px] md:text-[50px] my-60">
                 Team Modifications Closed.
-            </div>
+            </div> */}
             </div>
         </motion.div>
     );

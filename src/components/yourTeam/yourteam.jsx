@@ -78,14 +78,14 @@ const YourTeam = () => {
                     {team_members.map((ele, index) => {
                         return (
                         <div key={index} className={`flex items-center my-2 ${ele.posn === 'leader' ? 'bg-gray-900' : ''}`}>
-                            <div className="flex-[0.5]">{index+1})</div>
+                            <div className="flex-[0.5]">{index+1}</div>
                             <div className="flex-1">{ele.mname}</div>
                             <div className="flex-[0.5] flex justify-center">{ele.posn === 'leader' ? <img className="w-[60px]" src={flag} alt="flag"/> : <></>}</div>
                         </div>)
                     })}
                 </div>
-                {/* <div className="my-10" onClick={handle_leave}> <Button text="Leave" text_size="text-[25px] md:text-[40px]" width="w-[110px] md:w-[170px]" 
-                    height="100" border_width="p-[1px]"/> </div> */}
+                <div className="my-10" onClick={handle_leave}> <Button text="Leave" text_size="text-[25px] md:text-[40px]" width="w-[110px] md:w-[170px]" 
+                    height="100" border_width="p-[1px]"/> </div>
                 </div>:
                     <div className="bg-black flex flex-col items-center text-[20px] md:text-[40px] h-screen">
                         <div className="top-[40%] absolute bg-black">You havent joined any team.</div>
