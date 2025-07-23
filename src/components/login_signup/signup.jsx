@@ -28,18 +28,6 @@ const Signup = () => {
             return;
         }
 
-        const allowedDomain = 'nsut.ac.in';
-        const emailDomain = cred.email.split('@')[1];
-
-        if (emailDomain !== allowedDomain) {
-            setloading(false);
-            setres('<p style="color:red;">\
-                Please use your NSUT email ID (....@nsut.ac.in).\
-                </p>');
-            return;
-        }
-
-
         createUserWithEmailAndPassword(auth, cred.email, cred.password)
         .then(async (usercred) => {
 
